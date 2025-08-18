@@ -1,0 +1,16 @@
+---
+author: "yjsoon"
+pubDatetime: 2019-02-09T02:53:28.112Z
+title: "Determination to Learn"
+description: >
+  About a year ago, Daniel, a 19-year-old New Zealander, gave me a call, and asked if he could just come by our office and hang out and learn things qui...
+tags: ["work"]
+---
+
+About a year ago, Daniel, a 19-year-old New Zealander, gave me a call, and asked if he could just come by our office and hang out and learn things quietly on his own. He wasn't sure what to do for university, or if he even wanted to study at all. He was aware we had a techie internship programme, but didn't feel qualified enough to join us and get paid for it.
+
+We thought, why not? The worst that could happen was he'd come in, and stop showing up after a while. (Which is what happened with some other guy.)
+
+He never stopped showing up.
+
+He learned a whole bunch of programming, made himself very useful, we offered him a proper paid internship, and now he's off to study CS. [Read his story at our blog](https://blog.tinkercademy.com/11-months-at-tinker-tanker-9502027c731b).

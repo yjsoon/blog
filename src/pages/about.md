@@ -3,8 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-**YJ Soon** is a teacher and programmer in Singapore. 
-He runs Tinkertanker, where he teaches programming, and occasionally draws chickens.
+Hello! I'm **YJ Soon**, from and in Singapore. Depending on the time of day, I'm a teacher, programmer, designer, person who draws chickens, and/or business owner.
 
 ## Work
 
@@ -16,6 +15,8 @@ He runs Tinkertanker, where he teaches programming, and occasionally draws chick
 
 ## Projects
 
+- Programming projects
+  - [Bamboobot Cert Generator](https://github.com/tinkertanker/bamboobot-cert-generator): Interactive NextJS app to generate certificates of achievement with text embedded in PDF. 
 - Super, super old 3D animations my friends and I made in high school in the late 90s, using 3D Studio R4 or something: 
   - [Teapots: Once Upon A Time in China](https://youtube.com/watch?v=Mw1mhCZvwLQ)
   - [The Duckness of Space](https://youtube.com/watch?v=vuekAy5mGec)

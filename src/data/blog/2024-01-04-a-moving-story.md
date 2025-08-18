@@ -4,7 +4,7 @@ pubDatetime: 2024-01-04T00:00:00.000Z
 title: "A moving story*"
 description: >
   My company, Tinkertanker, is moving from our Bukit Merah office of 5 years over to Jalan Pemimpin.It’s our fourth “real” office after we moved out of ...
-tags: ["Links"]
+tags: ["work"] 
 ---
 
 

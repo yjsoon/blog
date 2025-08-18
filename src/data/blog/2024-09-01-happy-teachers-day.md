@@ -4,7 +4,7 @@ pubDatetime: 2024-09-01T00:00:00.000Z
 title: "Happy Teachers' Day"
 description: >
   Happy Teachers’ Day to:My wife, who every day, brings all her primary school teacher experience to bear for our kids’ education, especially in Chinese...
-tags: ["Links", "Teaching"]
+tags: ["teaching", "work", "writing"]
 ---
 
 

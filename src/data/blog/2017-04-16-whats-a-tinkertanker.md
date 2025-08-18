@@ -1,15 +1,11 @@
 ---
 author: "yjsoon"
-pubDatetime: 2025-08-18T02:53:28.111Z
+pubDatetime: 2017-04-16T02:53:28.111Z
 title: "What's a Tinkertanker"
 description: >
   Republished from Medium. We started Tinkertanker in 2011, and haven't written much about the company and what we do. As a result, we now regula...
-tags: ["Links", "Work"]
+tags: ["work", "writing"]
 ---
-
-
-
-
 
 Republished from [Medium](https://blog.tinkercademy.com/whats-a-tinkertanker-200bae67e8f1).
 

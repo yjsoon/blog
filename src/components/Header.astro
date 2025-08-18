@@ -3,7 +3,7 @@ import Hr from "./Hr.astro";
 import IconX from "@/assets/icons/IconX.svg";
 import IconMoon from "@/assets/icons/IconMoon.svg";
 import IconSearch from "@/assets/icons/IconSearch.svg";
-import IconArchive from "@/assets/icons/IconArchive.svg";
+import IconMail from "@/assets/icons/IconMail.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
@@ -42,7 +42,7 @@ const isActive = (path: string) => {
       {currentPath !== "/" && (
         <a
           href="/"
-          class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
+          class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap hover:text-accent sm:static sm:my-auto sm:text-2xl sm:leading-none"
         >
           {SITE.title}
         </a>
@@ -71,6 +71,11 @@ const isActive = (path: string) => {
           ]}
         >
           <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li>
+          <li class="col-span-2">
             <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
               Posts
             </a>
@@ -81,30 +86,16 @@ const isActive = (path: string) => {
             </a>
           </li>
           <li class="col-span-2">
-            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-              About
-            </a>
+            <LinkButton
+              href="mailto:yj@yjsoon.com"
+              class="focus-outline flex justify-center p-3 sm:p-1"
+              ariaLabel="email"
+              title="Email"
+            >
+              <IconMail class="hidden sm:inline-block" />
+              <span class="sm:sr-only">Email</span>
+            </LinkButton>
           </li>
-          {
-            SITE.showArchives && (
-              <li class="col-span-2">
-                <LinkButton
-                  href="/archives"
-                  class:list={[
-                    "focus-outline flex justify-center p-3 sm:p-1",
-                    {
-                      "active-nav [&>svg]:stroke-accent": isActive("/archives"),
-                    },
-                  ]}
-                  ariaLabel="archives"
-                  title="Archives"
-                >
-                  <IconArchive class="hidden sm:inline-block" />
-                  <span class="sm:sr-only">Archives</span>
-                </LinkButton>
-              </li>
-            )
-          }
           <li class="col-span-1 flex items-center justify-center">
             <LinkButton
               href="/search"

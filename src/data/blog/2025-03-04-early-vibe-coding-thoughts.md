@@ -4,11 +4,11 @@ pubDatetime: 2025-03-04T00:00:00.000Z
 title: "Early vibe coding thoughts"
 description: >
   Some thoughts on coding with AI (or, that awful, awful name, \\"vibe coding\\"):It's my kid's PSLE year*, and I got bored of reading spelling words to him...
-tags: ["Links", "Programming", "Teaching", "vibe coding"]
+tags: ["programming", "teaching", "vibe-coding"]
 ---
 
 
-Some thoughts on coding with AI (or, that awful, awful name, "vibe coding"):  
+Some thoughts on coding with AI (or, that awful, awful name, "vibe-coding"):  
   
 It's my kid's PSLE year\*, and I got bored of reading spelling words to him.  
   

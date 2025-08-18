@@ -4,7 +4,7 @@ pubDatetime: 2025-07-01T00:00:00.000Z
 title: "Sibeh awesome! Committed!"
 description: >
   Since my last post, I've settled on Claude Code for AI coding. Pedagogical questions aside, I seriously have not had this much fun playing with new te...
-tags: ["Links", "Programming", "vibe coding"]
+tags: ["programming", "vibe-coding"]
 ---
 
 

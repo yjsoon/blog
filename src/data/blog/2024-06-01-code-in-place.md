@@ -4,7 +4,7 @@ pubDatetime: 2024-06-01T00:00:00.000Z
 title: "Code in Place"
 description: >
   This week, I finished my final weekly volunteer session with my Code in Place section for 2024. Code in Place is a free online introductory programmin...
-tags: ["Links", "Teaching"]
+tags: ["teaching"]
 ---
 
 
