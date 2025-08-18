@@ -1,0 +1,14 @@
+---
+author: "yjsoon"
+pubDatetime: 2025-08-18T02:53:28.082Z
+title: "Ticking towards obsolescence"
+description: >
+  The title refers, of course, to the ORD counter on the right of this page, ticking its way towards glee-inducing uselessness. I rarely write about Na...
+tags: ["Links", "Ramblings"]
+---
+
+
+
+
+
+The title refers, of course, to the ORD counter on the right of this page, ticking its way towards glee-inducing uselessness. I rarely write about National Service because I really don't find many interesting things to write about at work. There's the usual inane routine (wake up, avoid roll call, avoid PT, avoid random arrows, work off random arrows that I didn't manage to avoid, avoid roll call again, sneak off home without boss noticing) which isn't the most inspiring subject matter. I haven't even gone outfield since I re-enlisted, so I can't complain about how _siong_ my week was, unlike some of my less fortunate re-enlisted buddies in [real combat vocations](http://tucque.blogspot.com)\*. After a year and a half of re-enlistment, though, I must admit I'm quite happy where I am in NS. What's to complain about? I don't have to stay in (I can't even figure out when my branch just, well, _stopped_ staying in despite no such &#8220;privilege&#8221; having been granted to us, as far as I know). I do some mildly interesting work that has, admittedly, expanded my tech know-how a little (writing silly little VBA scripts to handle my laughably messy &#8220;database&#8221; of personnel information; working with M$ Excel really freakin' fast; learning a bit of M$ Access). Furthermore, I haven't worked for more than three full days a week for the last 2.5 months, a statistic I'm working very, very hard to keep up for a couple more months. That's partly why I write so little about work -- not much to complain about. Also, I can't blog diary-style. I can't write something along the lines of &#8220;today I went to work and did some paperwork and we went for a run and it was great yay and then I went home and I had dinner and after that I beat off to duck porn\*\*&#8221; because that wouldn't interest me. There's a post waiting about what I choose to write about and the nature of my posts' subject matter (things I find interesting vs. things I find interesting to share), but I have to sleep because I have to go to work tomorrow and be bored and not blog about it. \* For _real_ NS stories, there's the [Singapore army stories blog](http://singaporearmystories.blogspot.com/) -- some awfully inane stuff, but mostly morbidly interesting. [Agagooga](http://gssq.blogspot.com/)'s archives have some great accounts of _real_ NS life too. \*\* Uhhhh... _puppet_ duck porn?

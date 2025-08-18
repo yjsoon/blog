@@ -1,0 +1,18 @@
+---
+author: "yjsoon"
+pubDatetime: 2025-08-18T02:53:28.081Z
+title: "Will Eisner"
+description: >
+  I was all ready to whine about all the nonsense at work I've been trying so hard (and failing) to handle with some kind of dignity, i.e. not breaking ...
+tags: ["Links", "Ramblings", "Readings"]
+---
+
+
+
+
+
+I was all ready to whine about all the nonsense at work I've been trying so hard (and failing) to handle with some kind of dignity, i.e. not breaking down and sobbing like a little child, but then I came across this piece of news: [Will Eisner, 1917 - 2005](http://www.willeisner.com/) ... and I couldn't write about that any more. Will Eisner was the creator of _The Spirit_, and the founder of the graphic novel as a modern literary construct. His biography [here](http://www.willeisner.com/bio/), and writer [Neil Gaiman](http://www.neilgaiman.com) has a couple of [tribute](http://www.neilgaiman.com/journal/2005/01/will-eisner-1917-2005.asp) [articles](http://www.neilgaiman.com/journal/2005/01/spirit-of-seventy-five.asp). Quoting...
+
+> I interviewed my friend Will Eisner a few year ago, at the Chicago Humanities Festival. At one point I asked him why he kept going, why he kept making comics when his contemporaries (and his contemporaries were people like Bob Kane -- before he did Batman -- remember) had long ago retired and stopped making art and telling stories, and are gone. He told me about a film he had seen once, in which a jazz musician kept playing because he was still in search of The Note. That it was out there somewhere, and he kept going to reach it. And that was why Will kept going: in the hopes that he'd one day do something that satisfied him. He was still looking for The Note... Will Eisner was better than any of us, and he kept working in the hope that one day he'd get it right.
+
+My Eisner collection, kickstarted by _A Contract With God_ and _Comics and Sequential Art_. Both were required readings in Scott Bukatman's Comics Seminar back at Stanford (the only class for which I did all the required readings, but who does that surprise?). ![](http://images.amazon.com/images/P/1563896796.01._SCMZZZZZZZ_.jpg) [&#8220;To the Heart of the Storm (Eisner, Will. Will Eisner Library.)&#8221; (Will Eisner)](http://www.amazon.com/exec/obidos/tg/detail/-/1563896796/) ![](http://images.amazon.com/images/P/1563896893.01._SCMZZZZZZZ_.jpg) [&#8220;The Neighborhood : Dropsie Avenue (Eisner, Will. Will Eisner Library.)&#8221; (Will Eisner)](http://www.amazon.com/exec/obidos/tg/detail/-/1563896893/) ![](http://images.amazon.com/images/P/1563896745.01._SCMZZZZZZZ_.jpg) [&#8220;A Contract with God : And Other Tenement Stories&#8221; (Will Eisner)](http://www.amazon.com/exec/obidos/tg/detail/-/1563896745/) ![](http://images.amazon.com/images/P/1569715009.01._SCMZZZZZZZ_.jpg) [&#8220;Last Day in Vietnam&#8221; (Will Eisner)](http://www.amazon.com/exec/obidos/tg/detail/-/1569715009/) ![](http://images.amazon.com/images/P/0878163700.01._SCMZZZZZZZ_.jpg) [&#8220;Life on Another Planet (Eisner, Will. Will Eisner Library.)&#8221; (Will Eisner)](http://www.amazon.com/exec/obidos/tg/detail/-/0878163700/) ![](http://images.amazon.com/images/P/0961472812.01._SCMZZZZZZZ_.jpg) [&#8220;Comics &#38; Sequential Art&#8221; (Will Eisner)](http://www.amazon.com/exec/obidos/tg/detail/-/0961472812/) ![](http://images.amazon.com/images/P/0961472820.01._SCMZZZZZZZ_.jpg) [&#8220;Graphic Storytelling&#8221; (Will Eisner)](http://www.amazon.com/exec/obidos/tg/detail/-/0961472820/) A pioneer of the medium, and one of its very best.

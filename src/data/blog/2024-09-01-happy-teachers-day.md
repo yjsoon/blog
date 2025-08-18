@@ -1,0 +1,31 @@
+---
+author: "yjsoon"
+pubDatetime: 2024-09-01T00:00:00.000Z
+title: "Happy Teachers' Day"
+description: >
+  Happy Teachers’ Day to:My wife, who every day, brings all her primary school teacher experience to bear for our kids’ education, especially in Chinese...
+tags: ["Links", "Teaching"]
+---
+
+
+Happy Teachers’ Day to:  
+  
+My wife, who every day, brings all her primary school teacher experience to bear for our kids’ education, especially in Chinese language;  
+  
+My parents, with over 60 years of teaching experience between them, part of which convinced them to spend weeks persuading me not to take a teaching scholarship 25 years ago;  
+  
+My teachers, most of whom might no longer be teaching, but whose lessons still resonate after all these decades;  
+  
+My teacher friends and peers, especially those still in the service, because look at all the lives you’ve touched! Could you have imagined that 20+ years ago when we started?;  
+  
+My ex-colleagues, wherever you are now, for having supported me as a beginning teacher who unfortunately never quite stayed long enough to outgrow that term;  
+  
+My current colleagues, who create curriculum and programmes and still step into classrooms to teach our odd little non-academic subject;  
+  
+My kids’ teachers, who my wife and I try to bother as little as possible, because we know the kids love you and that’s really nearly all that matters;  
+  
+All the teachers we work with, for giving us a chance to bring our lessons to your students;  
+  
+And finally, to my 25-year-ago self, who — as teenagers are wont to do in the face of sound parental advice — thought a teaching scholarship to go study in the US couldn’t have been \*that\* bad an idea. I’m glad for the choices we made, and I’m grateful for the people who got us here.  
+  
+Happy Teachers’ Day.

@@ -1,0 +1,34 @@
+---
+author: "yjsoon"
+pubDatetime: 2025-08-04T00:00:00.000Z
+title: "Application for \\"professional slopper\\""
+description: >
+  🔥 It’s not just fascination — it’s an obsession. 🔥 Lately, I’ve been on a journey (yes, a journey 🚀) to write like AI. Not just write with it — ...
+tags: ["Links", "AI", "Writing"]
+---
+
+
+🔥 It’s not just fascination — it’s an **obsession**. 🔥
+
+Lately, I’ve been on a journey (yes, a **journey** 🚀) to write like AI. Not just write with it — write \*like\* it.
+
+This means:  
+💥 Starting every post with a high-impact one-liner.  
+🏑 Using em-dashes — this punctuation, “—” — as many as four times — in a single sentence!  
+🔄 Not just stating things outright — starting with the negative, then escalating into hitherto unparallelled levels of hyperbole.  
+🤡 Using emojis as bullet points.  
+✅ Leaving \*\*all kinds of Markdown\*\* in my posts accidentally when copying and pasting.  
+🗺️ And — of course — calling everything a journey.
+
+It’s not just about automation.  
+It’s about amplifying impact.  
+It’s about unlocking potential.  
+It’s about showing up authentically while sounding completely manufactured. 🤖💡  
+  
+Am I the problem? Possibly.  
+  
+Will I stop? Not until I’ve crafted the perfect post that’s not just content – it’s connection.  
+  
+#LinkedIn #AIWriting #Authenticity #JourneyNotDestination #UnlockYourVoice #CraftingImpact #Hashtags #Hashtag #Writing #Slopping  
+
+(Sorry.)
