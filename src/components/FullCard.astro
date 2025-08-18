@@ -9,7 +9,7 @@ export interface Props extends CollectionEntry<"blog"> {
   variant?: "h2" | "h3";
 }
 
-const { variant = "h2", data, id, filePath, ...post } = Astro.props;
+const { variant = "h2", data, id, filePath } = Astro.props;
 
 const { title, pubDatetime, modDatetime, timezone } = data;
 
@@ -19,7 +19,7 @@ const headerProps = {
 };
 
 // Render the full content
-const { Content } = await render(post);
+const { Content } = await render(Astro.props);
 ---
 
 <li class="my-12 border-b border-border pb-8 last:border-b-0">
