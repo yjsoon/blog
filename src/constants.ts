@@ -2,10 +2,12 @@ import type { Props } from "astro";
 import IconMail from "@/assets/icons/IconMail.svg";
 import IconBrandX from "@/assets/icons/IconBrandX.svg";
 import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
+import IconThreads from "@/assets/icons/IconThreads.svg";
 import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconGitHub from "@/assets/icons/IConGitHub.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -18,15 +20,27 @@ interface Social {
 export const SOCIALS: Social[] = [
   {
     name: "X",
-    href: "https://twitter.com/yjsoon",
+    href: "https://x.com/yjsoon",
     linkTitle: `${SITE.title} on Twitter`,
     icon: IconBrandX,
+  },
+  {
+    name: "Threads",
+    href: "https://threads.net/@yjsoon",
+    linkTitle: `${SITE.title} on Threads`,
+    icon: IconThreads,
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/yjsoon",
     linkTitle: `${SITE.title} on LinkedIn`,
     icon: IconLinkedin,
+  },
+  {
+    name: "GitHub",
+    href: "https://www.github.com/yjsoon",
+    linkTitle: `${SITE.title} on GitHub`,
+    icon: IconGitHub,
   },
   {
     name: "Mail",
