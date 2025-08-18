@@ -8,4 +8,4 @@ tags: ["teaching"]
 ---
 is MEEEEEEE 
 
-![Me being annoying on LMS](public/images/2013/01/NewImage.png)
+![Me being annoying on LMS](../../assets/images/2013/01/NewImage.png)

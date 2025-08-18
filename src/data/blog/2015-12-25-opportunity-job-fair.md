@@ -7,4 +7,4 @@ description: >
 tags: ["drawings"]
 ---
 
-A commission from 2001 for some department in Stanford. ![](/images/2019/01/img_1106-1.jpg)
+A commission from 2001 for some department in Stanford. ![](../../assets/images/2019/01/img_1106-1.jpg)

@@ -9,4 +9,4 @@ tags: ["drawings"]
 
 A commission from 2006 for the then-Ministry of Information, Communication, and the Arts. I can't believe they let me put my chicken logo on there. 
 
-![MICA Innovation Fiesta poster](/images/2019/01/img_1107.jpg)
+![MICA Innovation Fiesta poster](../../assets/images/2019/01/img_1107.jpg)

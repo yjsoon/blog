@@ -18,26 +18,26 @@ Pictured: Memories from the old office; the old office being cleared out; fun el
   
 \* ok I know sorry sorry
 
-![](/images/2024/01/1704334081141-edited.jpeg)
+![](../../assets/images/2024/01/1704334081141-edited.jpeg)
 
-![](/images/2024/01/1704334077310-edited.jpeg)
+![](../../assets/images/2024/01/1704334077310-edited.jpeg)
 
-![](/images/2024/01/1704334081787-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334081787-768x1024.jpeg)
 
-![](/images/2024/01/1704334082361-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334082361-768x1024.jpeg)
 
-![](/images/2024/01/1704334080353-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334080353-768x1024.jpeg)
 
-![](/images/2024/01/1704334080653-edited.jpeg)
+![](../../assets/images/2024/01/1704334080653-edited.jpeg)
 
-![](/images/2024/01/1704334083729-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334083729-768x1024.jpeg)
 
-![](/images/2024/01/1704334082951-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334082951-768x1024.jpeg)
 
-![](/images/2024/01/1704334082375-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334082375-768x1024.jpeg)
 
-![](/images/2024/01/1704334080652-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334080652-768x1024.jpeg)
 
-![](/images/2024/01/D67AEFBD-28B8-4358-B340-7FE74EF4D747_1_105_c.jpeg)
+![](../../assets/images/2024/01/D67AEFBD-28B8-4358-B340-7FE74EF4D747_1_105_c.jpeg)
 
-![](/images/2024/01/1704334078703-768x1024.jpeg)
+![](../../assets/images/2024/01/1704334078703-768x1024.jpeg)

@@ -20,6 +20,6 @@ Super cool too that I managed to reconnect with Leoson — an ex-student from ov
   
 Pictured: A screenshot of the section homepage, showing "Next section: 2 days and 2 hours ago" ????)
 
-[![](/images/2024/06/code-in-place-screenshot-1024x537.jpg)](https://yjsoon.com/wp-content/uploads/2024/06/code-in-place-screenshot.jpg)
+[![](../../assets/images/2024/06/code-in-place-screenshot-1024x537.jpg)](https://yjsoon.com/wp-content/uploads/2024/06/code-in-place-screenshot.jpg)
 
 Screenshot
