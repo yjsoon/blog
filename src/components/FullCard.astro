@@ -1,0 +1,46 @@
+---
+import { slugifyStr } from "@/utils/slugify";
+import type { CollectionEntry } from "astro:content";
+import { getPath } from "@/utils/getPath";
+import { render } from "astro:content";
+import Datetime from "./Datetime.astro";
+
+export interface Props extends CollectionEntry<"blog"> {
+  variant?: "h2" | "h3";
+}
+
+const { variant = "h2", data, id, filePath, ...post } = Astro.props;
+
+const { title, pubDatetime, modDatetime, timezone } = data;
+
+const headerProps = {
+  style: { viewTransitionName: slugifyStr(title) },
+  class: "text-lg font-medium decoration-dashed hover:underline",
+};
+
+// Render the full content
+const { Content } = await render(post);
+---
+
+<li class="my-12 border-b border-border pb-8 last:border-b-0">
+  <article>
+    <header class="mb-4">
+      <a
+        href={getPath(id, filePath)}
+        class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+      >
+        {
+          variant === "h2" ? (
+            <h2 {...headerProps}>{title}</h2>
+          ) : (
+            <h3 {...headerProps}>{title}</h3>
+          )
+        }
+      </a>
+      <Datetime {pubDatetime} {modDatetime} {timezone} />
+    </header>
+    <div class="prose max-w-none prose-headings:text-foreground prose-p:text-foreground prose-a:text-accent prose-blockquote:text-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:text-foreground prose-ol:text-foreground prose-ul:text-foreground prose-li:text-foreground">
+      <Content />
+    </div>
+  </article>
+</li>

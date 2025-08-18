@@ -6,6 +6,7 @@ import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
+import FullCard from "@/components/FullCard.astro";
 import Hr from "@/components/Hr.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
@@ -24,48 +25,47 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Header />
   <main id="main-content" data-layout="index">
     <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/logo.png" alt="yjsoon" class="w-16 h-16 rounded-full" />
+        <div>
+          <h1 class="text-4xl font-bold sm:text-5xl">
+            yjsoon
+          </h1>
+          <p class="text-muted">Programming, education, and random thoughts</p>
+        </div>
+        <a
+          target="_blank"
+          href="/rss.xml"
+          class="inline-block ml-auto"
+          aria-label="rss feed"
+          title="RSS Feed"
         >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+          <IconRss
+            width={20}
+            height={20}
+            class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
+          />
+          <span class="sr-only">RSS Feed</span>
+        </a>
+      </div>
+
+      <div class="bg-muted/20 rounded-lg p-4 mb-6">
+        <p class="text-sm">
+          <strong>YJ Soon</strong> is a teacher and programmer in Singapore. 
+          He runs <a href="https://tinkertanker.com" class="text-accent hover:underline">Tinkertanker</a>, 
+          teaches programming to kids and adults, and occasionally draws 
+          <a href="/posts/tags/chicken" class="text-accent hover:underline">stupid chickens</a>.
+        </p>
+        {
+          // only display if at least one social link is enabled
+          SOCIALS.length > 0 && (
+            <div class="mt-3 flex flex-wrap items-center gap-2">
+              <span class="text-sm text-muted">Find me:</span>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
     </section>
 
     <Hr />
@@ -77,7 +77,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
             <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
             <ul>
               {featuredPosts.map(data => (
-                <Card variant="h3" {...data} />
+                <FullCard variant="h3" {...data} />
               ))}
             </ul>
           </section>
@@ -93,7 +93,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           <ul>
             {recentPosts.map(
               (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+                index < SITE.postPerIndex && <FullCard variant="h3" {...data} />
             )}
           </ul>
         </section>

@@ -1,7 +1,7 @@
 ---
 author: "yjsoon"
 pubDatetime: 2025-08-04T00:00:00.000Z
-title: "Application for \\"professional slopper\\""
+title: "Application for professional slopper"
 description: >
   🔥 It’s not just fascination — it’s an obsession. 🔥 Lately, I’ve been on a journey (yes, a journey 🚀) to write like AI. Not just write with it — ...
 tags: ["Links", "AI", "Writing"]
