@@ -1,8 +1,8 @@
 export const SITE = {
-  website: "https://yjsoon.com/", 
+  website: "https://yjsoon.com/",
   author: "YJ Soon",
   profile: "https://yjsoon.com/about",
-  desc: "YJ Soon's personal blog about programming, education, and random thoughts.",
+  desc: "YJ Soon's personal blog.",
   title: "yjsoon",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
@@ -19,5 +19,5 @@ export const SITE = {
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
   lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Singapore", 
+  timezone: "Asia/Singapore",
 } as const;

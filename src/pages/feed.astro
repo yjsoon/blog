@@ -1,0 +1,5 @@
+---
+// Redirect from WordPress-style /feed to /rss.xml
+// This ensures existing subscribers continue to receive updates
+return Astro.redirect("/rss.xml", 301);
+---
