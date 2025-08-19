@@ -1,0 +1,38 @@
+# WordPress to new blog URL redirects
+# This file works with Netlify, Cloudflare Pages, and other platforms
+
+# 2025 posts
+/2025/08/application-for-professional-slopper /posts/2025-08-04-application-for-professional-slopper/ 301
+/2025/08/warped /posts/2025-08-19-warped/ 301
+/2025/07/sibeh-awesome-committed /posts/2025-07-01-sibeh-awesome-committed/ 301
+/2025/03/early-vibe-coding-thoughts /posts/2025-03-04-early-vibe-coding-thoughts/ 301
+
+# 2024 posts
+/2024/12/one-million-checkboxes /posts/2024-12-03-one-million-checkboxes/ 301
+/2024/09/happy-teachers-day /posts/2024-09-01-happy-teachers-day/ 301
+/2024/06/code-in-place /posts/2024-06-01-code-in-place/ 301
+/2024/01/a-moving-story /posts/2024-01-04-a-moving-story/ 301
+
+# 2020 posts
+/2020/01/2020-vision /posts/2020-01-02-2020-vision/ 301
+
+# 2019 posts
+/2019/02/determination-to-learn /posts/2019-02-09-determination-to-learn/ 301
+/2019/01/bird-box-challenge /posts/2019-01-13-bird-box-challenge/ 301
+/2019/01/fries-robot /posts/2019-01-09-fries-robot/ 301
+
+# 2017 posts
+/2017/04/whats-a-tinkertanker /posts/2017-04-16-whats-a-tinkertanker/ 301
+
+# 2015 posts
+/2015/12/opportunity-job-fair /posts/2015-12-25-opportunity-job-fair/ 301
+
+# 2014 posts
+/2014/03/mica-innovation-fiesta /posts/2014-03-14-mica-innovation-fiesta/ 301
+
+# 2013 posts
+/2013/01/the-most-annoying-teacher-in-the-world /posts/2013-01-17-the-most-annoying-teacher-in-the-world/ 301
+
+# RSS Feed redirects (already handled by Astro routes, but included for completeness)
+/feed /rss.xml 301
+/feed.xml /rss.xml 301
