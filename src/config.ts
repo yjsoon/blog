@@ -6,7 +6,7 @@ export const SITE = {
   title: "yjsoon",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 10,
+  postPerIndex: 5, // Show 5 full posts on homepage
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,

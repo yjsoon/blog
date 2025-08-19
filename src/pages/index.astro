@@ -6,6 +6,7 @@ import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import FullCard from "@/components/FullCard.astro";
+import HeadlineCard from "@/components/HeadlineCard.astro";
 import Hr from "@/components/Hr.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
@@ -18,6 +19,10 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+// Split recent posts into full posts (first 5) and headlines (next 5)
+const fullPosts = recentPosts.slice(0, 5);
+const headlinePosts = recentPosts.slice(5, 10);
 ---
 
 <Layout>
@@ -79,15 +84,26 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     }
 
     {
-      recentPosts.length > 0 && (
+      fullPosts.length > 0 && (
         <section id="recent-posts" class="pt-6 pb-6">
           <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <FullCard variant="h3" {...data} />
-            )}
+            {fullPosts.map(data => <FullCard variant="h3" {...data} />)}
           </ul>
         </section>
+      )
+    }
+
+    {
+      headlinePosts.length > 0 && (
+        <>
+          <Hr />
+          <section id="more-posts" class="pt-6 pb-6">
+            <h2 class="text-xl font-semibold mb-6">Further back in time</h2>
+            <ul class="ml-2">
+              {headlinePosts.map(data => <HeadlineCard {...data} />)}
+            </ul>
+          </section>
+        </>
       )
     }
 

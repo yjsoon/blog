@@ -1,0 +1,29 @@
+---
+import { slugifyStr } from "@/utils/slugify";
+import type { CollectionEntry } from "astro:content";
+import { getPath } from "@/utils/getPath";
+import Datetime from "./Datetime.astro";
+
+export interface Props extends CollectionEntry<"blog"> {}
+
+const { data, id, filePath } = Astro.props;
+const { title, pubDatetime, modDatetime, timezone } = data;
+---
+
+<li class="my-3">
+  <article class="flex items-start gap-4">
+    <Datetime 
+      {pubDatetime} 
+      {modDatetime} 
+      {timezone} 
+      class="text-sm text-foreground/60 shrink-0 mt-0.5"
+    />
+    <a
+      href={getPath(id, filePath)}
+      class="text-lg text-accent hover:underline decoration-dashed underline-offset-4"
+      style={{ viewTransitionName: slugifyStr(title) }}
+    >
+      {title}
+    </a>
+  </article>
+</li>
