@@ -1,0 +1,1 @@
+- [ ] Build a lightbox https://eikowagenknecht.de/posts/build-your-own-lightbox-component-for-astro/. This means that all the blog posts need to become mdx files. 

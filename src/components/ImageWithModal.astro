@@ -1,0 +1,16 @@
+---
+import JsxImageWithModal from "./ImageWithModal.jsx";
+import X from "./icons/X.astro";
+
+export type Props = {
+  src: string;
+  alt: string;
+  title?: string;
+};
+
+const { src, alt, title } = Astro.props;
+---
+
+<JsxImageWithModal client:visible src={src} alt={alt} title={title}>
+  <X slot="closeIcon" />
+</JsxImageWithModal>

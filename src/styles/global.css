@@ -26,6 +26,15 @@ html[data-theme="dark"] {
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+
+  --height-screen-90: 90vh;
+  --height-screen-50: 50vh;
+  --width-screen-90: 90vw;
+  --width-screen-50: 50vw;
+  --max-height-screen-90: 90vh;
+  --max-height-screen-50: 50vh;
+  --max-width-screen-90: 90vw;
+  --max-width-screen-50: 50vw;
 }
 
 @layer base {
@@ -56,6 +65,15 @@ html[data-theme="dark"] {
 
 @utility max-w-app {
   @apply max-w-3xl;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .active-nav {
