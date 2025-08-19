@@ -9,7 +9,7 @@ tags: ["programming", "teaching", "links"]
 
 In June, a programmer, Nolen Royalty or "eieio", released a web-based mini-game, [onemillioncheckboxes.com](http://onemillioncheckboxes.com/), which allowed users to check or uncheck any of 1,000,000 checkboxes — and when they did, it changed for everyone viewing the site simultaneously. The goal was to get everything checked at once, which was nigh-impossible. The site went viral: 500,000 people ended up checking more than 650 million boxes in just two weeks. The Washington Post described it as "the most pointless site on the internet; it's fantastic".
 
-[![](../../assets/images/2025/08/image.png)](../../assets/images/2025/08/image.png)
+![](../../assets/images/2025/08/image.png)
 
 In August, eieio detailed an unexpected, and remarkable, outcome of the game in [this blog post](https://eieio.games/blog/the-secret-inside-one-million-checkboxes/) :
 

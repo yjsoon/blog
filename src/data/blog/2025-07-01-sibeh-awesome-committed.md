@@ -10,7 +10,7 @@ tags: ["programming", "vibe-coding"]
 
 Since my last post, I've settled on [Claude Code](https://www.anthropic.com/claude-code) for AI coding. Pedagogical questions aside, I seriously have not had this much fun playing with new tech for a while. My Git commit history is currently filled with random side projects I've put off for years, which I now "work on" in between classes. It's exhilarating, and the exciting part is how fast the tech -- and hence possibilities --\* are growing.
 
-[![](../../assets/images/2025/08/image-2.png)](../../assets/images/2025/08/image-2.png)
+![](../../assets/images/2025/08/image-2.png)
 
 (I got tired of Claude telling me _"You're absolutely right!"_, so I told CLAUDE.md to respond in Singlish.)
 

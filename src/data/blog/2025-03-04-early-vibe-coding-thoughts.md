@@ -16,7 +16,7 @@ So I thought, why don't I write an app for that?
   
 45 minutes later, I had something fully-functional — not because I'm fast, but because I used [Cursor](http://cursor.com) (pictured). AI coding tools like Cursor, GitHub Copilot, and Windsurf can help programmers write full code, in-editor, soaking in the full context of the existing codebase.
 
-[![](../../assets/images/2025/08/image-1-1024x263.png)](https://yjsoon.com/wp-content/uploads/2025/08/image-1.png)
+![](../../assets/images/2025/08/image-1-1024x263.png)
 
 This is different from "asking ChatGPT" because of the in-editor and full-context parts. In the "bad old days" of... _1 year ago_, I'd have had to copy my code over to ChatGPT, give the AI context about what language and framework I was working with, get some code back, and hope that the generated code was easy enough to just plug back into my codebase somewhere. So much cognitive overhead!  
   
