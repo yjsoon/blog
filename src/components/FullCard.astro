@@ -39,7 +39,7 @@ const { Content } = await render(Astro.props);
       </a>
       <Datetime {pubDatetime} {modDatetime} {timezone} />
     </header>
-    <div class="prose max-w-none prose-headings:text-foreground prose-p:text-foreground prose-a:text-accent prose-blockquote:text-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:text-foreground prose-ol:text-foreground prose-ul:text-foreground prose-li:text-foreground">
+    <div class="app-prose max-w-none">
       <Content />
     </div>
   </article>
