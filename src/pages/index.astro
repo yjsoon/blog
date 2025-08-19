@@ -25,7 +25,6 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <main id="main-content" data-layout="index">
     <section id="hero" class="py-8">
       <div class="flex items-center gap-4 mb-6">
-        <img src="/logo.png" alt="yjsoon" class="w-16 h-16 rounded-full" />
         <div>
           <h1 class="text-3xl font-bold sm:text-4xl py-2">
             yjsoon
@@ -45,7 +44,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
             </a>
           </h1>
           <p class="text-foreground/70">I write about tech, programming, teaching, design, running a company, 
-          and other amusing things.</p>
+          and other amusing things. <a href="/about" class="link">More here</a>.</p>
         {
           // only display if at least one social link is enabled
           SOCIALS.length > 0 && (
@@ -56,6 +55,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           )
         }
         </div>
+        <img src="/logo.png" alt="yjsoon" class="w-16 h-16 rounded-full" />
       </div>
 
     </section>
