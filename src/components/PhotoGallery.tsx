@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ColumnsPhotoAlbum } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
 import 'react-photo-album/columns.css';
@@ -13,15 +13,14 @@ interface Photo {
 
 interface Props {
   photos: Photo[];
-  targetRowHeight?: number;
 }
 
-export default function PhotoGallery({ photos, targetRowHeight = 180 }: Props) {
+export default function PhotoGallery({ photos }: Props) {
   const [index, setIndex] = useState(-1);
 
   return (
     <div className="my-4">
-      <style jsx global>{`
+      <style>{`
         .react-photo-album--columns {
           gap: 2px !important;
           column-gap: 4px !important;
