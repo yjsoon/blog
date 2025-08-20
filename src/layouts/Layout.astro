@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
+import Logo from "@/assets/logo.png";
 import "@/styles/global.css";
 
 export interface Props {
@@ -56,7 +57,7 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" href={Logo.src} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 

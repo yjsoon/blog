@@ -13,6 +13,7 @@ import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
+import Logo from "@/assets/logo.png";
 
 const posts = await getCollection("blog");
 
@@ -60,7 +61,7 @@ const headlinePosts = recentPosts.slice(5, 10);
           )
         }
         </div>
-        <img src="/logo.png" alt="yjsoon" class="w-16 h-16 rounded-full" />
+        <img src={Logo.src} alt="yjsoon" class="w-16 h-16 rounded-full" />
       </div>
 
     </section>
