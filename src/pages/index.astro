@@ -9,7 +9,6 @@ import FullCard from "@/components/FullCard.astro";
 import HeadlineCard from "@/components/HeadlineCard.astro";
 import Hr from "@/components/Hr.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
-import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
@@ -32,23 +31,7 @@ const headlinePosts = recentPosts.slice(5, 10);
     <section id="hero" class="py-8">
       <div class="flex items-center gap-4 mb-6">
         <div>
-          <h1 class="text-3xl font-bold sm:text-4xl py-2">
-            yjsoon
-            <a
-              target="_blank"
-              href="/feed"
-              class="inline-block ml-auto"
-              aria-label="rss feed"
-              title="RSS Feed"
-            >
-              <IconRss
-                width={20}
-                height={20}
-                class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-              />
-              <span class="sr-only">RSS Feed</span>
-            </a>
-          </h1>
+          <h1 class="text-3xl font-bold sm:text-4xl py-2">yjsoon</h1>
           <p class="text-foreground/70">I write about tech, programming, teaching, design, running a company, 
           and other amusing things. <a href="/about" class="link">More here</a>.</p>
         {
