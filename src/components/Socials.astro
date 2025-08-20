@@ -9,15 +9,15 @@ export interface Props {
 const { centered = false } = Astro.props;
 ---
 
-<div class:list={["flex-wrap justify-center gap-1", { flex: centered }]}>
+<div class:list={["flex flex-wrap justify-center gap-0.5 sm:gap-1", { flex: centered }]}>
   {
     SOCIALS.map(social => (
       <LinkButton
         href={social.href}
-        class="p-2 hover:rotate-6 sm:p-1"
+        class="p-1.5 hover:rotate-6 sm:p-2"
         title={social.linkTitle}
       >
-        <social.icon class={`inline-block size-6 ${social.name === 'X' || social.name === 'Threads' ? 'scale-110 sm:scale-100' : 'scale-125 sm:scale-110'} fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent mx-1`} />
+        <social.icon class={`inline-block size-5 sm:size-6 ${social.name === 'X' || social.name === 'Threads' ? 'scale-110 sm:scale-100' : 'scale-110 sm:scale-125'} fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent`} />
         <span class="sr-only">{social.linkTitle}</span>
       </LinkButton>
     ))
