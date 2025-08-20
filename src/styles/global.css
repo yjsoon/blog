@@ -5,22 +5,22 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
+  --background: #f7f5f2;
   --foreground: #282728;
   --accent: #b85450;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  --muted: #ece9e3;
+  --border: #e2dfd9;
 }
 
 html[data-theme="dark"] {
   /* Site-wide dark background tweak */
-  --background: #222222;
+  --background: #1e1f22;
   --foreground: #eaedf3;
   --accent: #d4706c;
-  /* Subtle surfaces on #222 */
+  /* Subtle surfaces on dark */
   --muted: #333333;
-  /* Neutral border for dark */
-  --border: #444444;
+  /* More separation on dark */
+  --border: #555555;
 }
 
 @theme inline {
