@@ -25,4 +25,13 @@ npm run build
 
 ## License
 
-MIT
+- Code: MIT — see [LICENSE](./LICENSE).
+- Content (posts, pages, and images in `src/data` and elsewhere unless noted):
+  [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+  You may share and adapt with attribution to "YJ Soon" and a link to the
+  original page or https://yjsoon.com.
+
+Notes
+- Third‑party trademarks and logos are the property of their respective owners.
+- Some images or embeds may have their own licenses; where applicable, those
+  are indicated in the post.
