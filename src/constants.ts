@@ -8,6 +8,7 @@ import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
 import IconGitHub from "@/assets/icons/IconGitHub.svg";
+import IconRss from "@/assets/icons/IconRss.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -47,6 +48,12 @@ export const SOCIALS: Social[] = [
     href: "mailto:yj@yjsoon.com",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: IconMail,
+  },
+  {
+    name: "RSS",
+    href: "/feed",
+    linkTitle: `${SITE.title} RSS Feed`,
+    icon: IconRss,
   },
 ] as const;
 
