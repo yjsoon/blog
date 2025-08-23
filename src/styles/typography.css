@@ -26,6 +26,11 @@
     code {
       @apply text-foreground tracking-tight;
     }
+    
+    strong,
+    b {
+      @apply font-bold;
+    }
 
     a {
       @apply break-words text-accent decoration-dashed underline-offset-4 hover:opacity-80 focus-visible:no-underline;
