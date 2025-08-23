@@ -23,6 +23,14 @@ npm run dev
 npm run build
 ```
 
+## Deployment
+
+Deployed automatically via **Cloudflare Pages** connected to the GitHub repository. Push to `main` branch triggers automatic deployment.
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node.js version: Specified in `.nvmrc`
+
 ## License
 
 - Code: MIT — see [LICENSE](./LICENSE).

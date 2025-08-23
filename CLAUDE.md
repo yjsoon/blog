@@ -103,6 +103,14 @@ Main config in `/src/config.ts`:
 
 Social links in `/src/constants.ts`
 
+## Deployment
+
+**Cloudflare Pages**: Automatically deploys from GitHub repository on push to main branch.
+- No manual deployment commands needed
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node.js version specified in `.nvmrc`
+
 ## Migration Context
 
 This blog migrated from WordPress at yjsoon.com. TODO items include:
