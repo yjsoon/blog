@@ -1,0 +1,37 @@
+---
+export interface Props {
+  videoId: string;
+  title?: string;
+  aspectRatio?: "16:9" | "4:3" | "1:1";
+  className?: string;
+}
+
+const { videoId, title = "YouTube video player", aspectRatio = "16:9", className = "" } = Astro.props;
+
+// Calculate padding based on aspect ratio
+const paddingBottom = aspectRatio === "16:9" ? "56.25%" : aspectRatio === "4:3" ? "75%" : "100%";
+---
+
+<div class={`youtube-embed relative w-full h-0 mb-6 ${className}`} style={`padding-bottom: ${paddingBottom};`}>
+  <iframe
+    src={`https://www.youtube.com/embed/${videoId}`}
+    title={title}
+    class="absolute top-0 left-0 w-full h-full border-0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</div>
+
+<style>
+  .youtube-embed {
+    /* Ensure proper responsive behavior */
+    max-width: 100%;
+  }
+  
+  /* Optional: Add a subtle border on hover */
+  .youtube-embed iframe:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+  }
+</style> 
