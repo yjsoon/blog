@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://yjsoon.com/about",
   desc: "YJ Soon's personal blog.",
   title: "yjsoon",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "yjsoon-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 5, // Show 5 full posts on homepage
   postPerPage: 10,
