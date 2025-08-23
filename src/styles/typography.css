@@ -76,6 +76,12 @@
 
     blockquote {
       @apply border-s-accent/80 break-words opacity-80;
+      quotes: none;
+    }
+    
+    blockquote:before,
+    blockquote:after {
+      content: none !important;
     }
 
     details {
