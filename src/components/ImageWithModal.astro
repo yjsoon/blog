@@ -6,11 +6,12 @@ export type Props = {
   src: string;
   alt: string;
   title?: string;
+  class?: string;
 };
 
-const { src, alt, title } = Astro.props;
+const { src, alt, title, class: className } = Astro.props;
 ---
 
-<JsxImageWithModal client:visible src={src} alt={alt} title={title}>
+<JsxImageWithModal client:visible src={src} alt={alt} title={title} className={className}>
   <X slot="closeIcon" />
 </JsxImageWithModal>

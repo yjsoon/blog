@@ -48,11 +48,11 @@ export default function ImageWithModal(props) {
 
   return (
     <div>
-      <figure>
+      <figure className={props.className || ''}>
         <img
           src={srcUrl}
           alt={props.alt}
-          className="max-h-[50vh] m-auto cursor-pointer"
+          className="max-h-[50vh] cursor-pointer m-auto"
           onClick={() => setOpen(true)}
         />
         {props.title && (
