@@ -1,6 +1,6 @@
 ---
 title: "The General Problem"
-pubDatetime: 2025-09-26T00:00:00.000Z
+pubDatetime: 2025-09-27T00:00:00.000Z
 featured: false
 draft: false
 tags: ["ai", "vibe-coding", "personal finance"]
@@ -14,7 +14,7 @@ I was entering my credit card transactions manually into my personal finance app
 This led me down a rabbit hole where I ended up making a side app to compare LLM processing speeds on [OpenRouter](https://openrouter.ai) in converting images of credit card transactions to CSV. The "test" was to parse one screenshot of transactions (about 11) into a given format (date, description, memo, incoming, outgoing), timed, and checked against the expected number of transactions and summed total.
 
 Observations and conclusions: 
-1. Gemini 2.5 Flash beat the crap out of everyone. 4 seconds to parse the page, vs. 10+ for the next nearest model! I'd previously just done this with ChatGPT, but got bored waiting for it to make me a nice Markdown table, and this is _blazingly_ fast in comparison.
+1. Gemini 2.5 Flash beat the crap out of every other model I tried (the full list: Haiku 3, Pixtral, GPT 5-mini and 4o-mini, ). 4 seconds to parse the page, vs. 10+ for the next nearest model! I'd previously just done this with ChatGPT, but got bored waiting for it to make me a nice Markdown table, and this is _blazingly_ fast in comparison.
 2. Local models are still currently awful. I fed the same prompts to some `qwen` and `llama` models and their ilk (whatever can run on my M4 Pro MacBook Pro with 64GB RAM), and they kept making up output or missing results. Maybe I just don't have enough experience working with local LLMs, but I fear it'll be a while before they get good enough for anything other than specialised tasks. 
 3. I was trying local LLMs because of cost, but each month of credit card bills costs me under 10 cents to process. Worth it!
 4. With all the time I spent doing this, I could have manually entered all my card transactions by now. Cue [XKCD comic about "The General Problem"](https://xkcd.com/974/)! There's _always_ an XKCD comic.
