@@ -8,6 +8,7 @@ description: ""
 ---
 
 import ImageWithModal from "../../components/ImageWithModal.astro";
+import llmTestingArena from "../../assets/images/2025/09/llm-testing-arena.jpg";
 
 I was entering my credit card transactions manually into my personal finance app [YNAB](https://ynab.com)\*, and got distracted by a mini vibe coding project — what if I made a personal web app to send screenshots of my bills (not the full PDFs of course) to a LLM to get CSVs I could upload into YNAB\*\*?
 
@@ -24,7 +25,8 @@ Observations and conclusions:
 \*\* I just re-read the second half of this sentence, and there's way too many acronyms for this to have made sense.
 
 <ImageWithModal
-  src="/src/assets/images/2025/09/llm-testing-arena.jpg"
+  src={llmTestingArena}
+  alt="LLM testing arena... for one specific task"
   title="LLM testing arena... for one specific task"
 />
 
