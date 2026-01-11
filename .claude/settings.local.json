@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(git init:*)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:lnkd.in)",
+      "WebFetch(domain:substack.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
