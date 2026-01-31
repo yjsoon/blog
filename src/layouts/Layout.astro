@@ -134,9 +134,24 @@ const structuredData = {
     <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body>
-    <!--email_off-->
     <slot />
-    <!--email_on-->
+    <script>
+      function initEmailLinks() {
+        document.querySelectorAll('.js-email').forEach(el => {
+          const a = el.closest('a') || el;
+          const u = a.getAttribute('data-u');
+          const d = a.getAttribute('data-d');
+          if (u && d) {
+            a.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.location.href = 'mailto:' + u + '@' + d;
+            });
+          }
+        });
+      }
+      initEmailLinks();
+      document.addEventListener('astro:after-swap', initEmailLinks);
+    </script>
   </body>
 </html>
 
