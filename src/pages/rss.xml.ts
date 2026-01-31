@@ -89,6 +89,15 @@ export async function GET() {
         cleanBody = cleanBody.replace(stringImageRegex, '\n\n<img src="$1" alt="$2" />\n\n');
         cleanBody = cleanBody.replace(multilineStringRegex, '\n\n<img src="$1" alt="$2" />\n\n');
         
+        // Convert YouTubeEmbed components to clickable thumbnail + link
+        cleanBody = cleanBody.replace(
+          /<YouTubeEmbed\s*\n?\s*videoId="([^"]+)"\s*\n?\s*(?:title="([^"]*)")?\s*\n?\s*\/?>/gm,
+          (_, videoId, title) => {
+            const label = title || 'Watch on YouTube';
+            return `\n\n<a href="https://www.youtube.com/watch?v=${videoId}"><img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" alt="${label}" /></a>\n<p><a href="https://www.youtube.com/watch?v=${videoId}">▶ ${label}</a></p>\n\n`;
+          }
+        );
+
         // Convert MovingStoryGallery components to placeholder text
         cleanBody = cleanBody.replace(
           /<MovingStoryGallery[^>]*\/?>/g,
