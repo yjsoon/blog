@@ -1,0 +1,35 @@
+---
+author: "yjsoon"
+pubDatetime: 2026-02-16T00:00:00.000Z
+title: "My Octopus Teacher"
+description: "I built a personal AI operations centre out of Telegram channels and cron jobs, and it's the most fun I've had with tech since the App Store launched."
+tags: ["ai", "coding", "openclaw"]
+featured: false
+draft: true
+---
+
+I've been using [OpenClaw](https://openclaw.ai) for about a month now. It's an open-source thing that runs an AI agent on your machine and connects it to your messaging apps. My bot lives in Telegram. Its name is Clawd. It's an octopus. (Long story.)
+
+The important bit: it's not like ChatGPT, where you go to a website and ask it stuff. This one just sits in Telegram alongside my family chat, and it *does things*. On its own, on a schedule, or when I ask.
+
+What kind of things? Well.
+
+I have a Telegram group that's basically a Discord server for me and my bot. Different topic channels for different concerns. There's one where I snap photos of my food and it estimates calories. One where it syncs my Twitter bookmarks to [Readwise](https://readwise.io) every couple of hours. One where I asked it to build me a credit card rewards advisor — it went off and researched T&Cs from my bank websites, built a lookup system, and now tells me which card to tap at which store. (That one took an afternoon. It spawned its own sub-agent to do the research, which is a sentence I still can't believe I'm typing.)
+
+In my family group chat, it checks mall websites twice a day for [Mofusand](https://mofusand.com/) blind box promotions, because my wife collects them. She has opinions about which keychains are acceptable. The bot remembers.
+
+It monitors my credit card transactions across five banks every 30 minutes. It catalogues memes from my [Obsidian](https://obsidian.md/) notes every evening. It reminds me to weigh myself at 6am (I never do). It backs up its own workspace to git nightly. At last count I have about 15 of these scheduled tasks running, each on a cheap AI model that costs about 2 cents per run.
+
+I keep telling people this feels like 2008. When the App Store launched, there was this energy of *what if my phone could do this?* Most of those early apps were janky — remember when the flashlight app was a top download? — but they were exciting because each one was a new capability you didn't have yesterday.
+
+Same energy here, except instead of downloading apps other people built, I'm building them myself, in conversation, for my own weird needs. Nobody else on earth needs a bot that monitors five bank accounts, catalogues memes, AND hunts for cat plushies. But I do, apparently.
+
+It's not seamless. The bot sends duplicate messages sometimes. The calorie estimates are rough. Foreign currency transactions confuse it. I've rewritten things multiple times when edge cases broke stuff. But as Casey Newton said on [Hard Fork](https://www.nytimes.com/column/hard-fork): "Stuff that barely works in January might be pretty freaking good by November." The image cataloguing that was flaky two weeks ago works reliably now. The transaction monitoring caught a charge I'd have missed.
+
+Here's the bit that messes with my head: I teach app development. I spend my days helping students build interfaces with SwiftUI. And I'm increasingly doing everything through a text chat. My friend Jensen put it well — "If I want to set up a meeting with you, I don't want to tap on your face until I get a slot I can confirm." For the long tail of personal, specific, too-small-to-be-worth-building-an-app-for tasks, maybe chat is just... the thing.
+
+I didn't write most of this "code" myself. I described what I wanted, the AI built it, I complained when it broke, and we iterated. The barrier to building this stuff isn't programming skill anymore. It's having the imagination to think *what if my bot could do X*, and the patience to keep going when it inevitably doesn't work the first time.
+
+So if you've been wondering what I've been up to, it's this. I've been building a personal AI operations centre out of Telegram channels, cron jobs, and stubbornness, and it's the most fun I've had with tech in years.
+
+Now if you'll excuse me, I need to go teach my octopus to track plushie prices on Carousell.
