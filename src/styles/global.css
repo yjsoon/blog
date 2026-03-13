@@ -93,3 +93,6 @@ html[data-theme="dark"] {
 :target {
   scroll-margin-block: 1rem;
 }
+.no-bottom-margin {
+  margin-bottom: 0 !important;
+}
