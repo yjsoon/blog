@@ -29,6 +29,15 @@ html[data-theme="dark"] {
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --font-sans:
+    "Instrument Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-display:
+    "Space Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-mono:
+    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   --height-screen-90: 90vh;
   --height-screen-50: 50vh;
@@ -50,7 +59,24 @@ html[data-theme="dark"] {
     @apply overflow-y-scroll scroll-smooth;
   }
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+    @apply flex min-h-svh flex-col bg-background font-sans text-foreground antialiased selection:bg-accent/75 selection:text-background;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  nav,
+  button,
+  time {
+    @apply font-display;
+  }
+  code,
+  pre,
+  kbd,
+  samp {
+    @apply font-mono;
   }
   a,
   button {
@@ -67,7 +93,15 @@ html[data-theme="dark"] {
 }
 
 @utility max-w-app {
-  @apply max-w-3xl;
+  max-width: 688px;
+}
+
+@utility max-w-content {
+  max-width: 688px;
+}
+
+@utility font-display {
+  font-family: var(--font-display);
 }
 
 @utility no-scrollbar {

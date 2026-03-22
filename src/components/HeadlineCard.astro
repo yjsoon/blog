@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import { getPath } from "@/utils/getPath";
 import Datetime from "./Datetime.astro";
 
-export interface Props extends CollectionEntry<"blog"> {}
+export type Props = CollectionEntry<"blog">;
 
 const { data, id, filePath } = Astro.props;
 const { title, pubDatetime, modDatetime, timezone } = data;
@@ -20,7 +20,7 @@ const { title, pubDatetime, modDatetime, timezone } = data;
     />
     <a
       href={getPath(id, filePath)}
-      class="text-lg text-accent hover:underline decoration-dashed underline-offset-4"
+      class="font-display text-lg text-accent hover:underline decoration-dashed underline-offset-4"
       style={{ viewTransitionName: slugifyStr(title) }}
     >
       {title}
