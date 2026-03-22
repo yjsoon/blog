@@ -149,6 +149,7 @@ export default async post => {
                     margin: "20px",
                     width: "90%",
                     height: "90%",
+                    fontFamily: "Instrument Sans",
                   },
                   children: [
                     {
@@ -156,6 +157,7 @@ export default async post => {
                       props: {
                         style: {
                           fontSize: 72,
+                          fontFamily: "Space Grotesk",
                           fontWeight: "bold",
                           maxHeight: "84%",
                           overflow: "hidden",
@@ -191,6 +193,7 @@ export default async post => {
                                   props: {
                                     style: {
                                       overflow: "hidden",
+                                      fontFamily: "Space Grotesk",
                                       fontWeight: "bold",
                                     },
                                     children: post.data.author,
@@ -202,7 +205,11 @@ export default async post => {
                           {
                             type: "span",
                             props: {
-                              style: { overflow: "hidden", fontWeight: "bold" },
+                              style: {
+                                overflow: "hidden",
+                                fontFamily: "Space Grotesk",
+                                fontWeight: "bold",
+                              },
                               children: SITE.title,
                             },
                           },

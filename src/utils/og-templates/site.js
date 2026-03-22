@@ -58,6 +58,7 @@ export default async () => {
                     margin: "20px",
                     width: "90%",
                     height: "90%",
+                    fontFamily: "Instrument Sans",
                   },
                   children: [
                     {
@@ -77,7 +78,11 @@ export default async () => {
                           {
                             type: "p",
                             props: {
-                              style: { fontSize: 72, fontWeight: "bold" },
+                              style: {
+                                fontSize: 72,
+                                fontFamily: "Space Grotesk",
+                                fontWeight: "bold",
+                              },
                               children: SITE.title,
                             },
                           },
@@ -104,7 +109,11 @@ export default async () => {
                         children: {
                           type: "span",
                           props: {
-                            style: { overflow: "hidden", fontWeight: "bold" },
+                            style: {
+                              overflow: "hidden",
+                              fontFamily: "Space Grotesk",
+                              fontWeight: "bold",
+                            },
                             children: new URL(SITE.website).hostname,
                           },
                         },

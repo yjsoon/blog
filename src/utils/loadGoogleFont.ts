@@ -36,15 +36,27 @@ async function loadGoogleFonts(
 > {
   const fontsConfig = [
     {
-      name: "IBM Plex Mono",
-      font: "IBM+Plex+Mono",
+      name: "Space Grotesk",
+      font: "Space+Grotesk",
       weight: 400,
       style: "normal",
     },
     {
-      name: "IBM Plex Mono",
-      font: "IBM+Plex+Mono",
+      name: "Space Grotesk",
+      font: "Space+Grotesk",
       weight: 700,
+      style: "bold",
+    },
+    {
+      name: "Instrument Sans",
+      font: "Instrument+Sans",
+      weight: 400,
+      style: "normal",
+    },
+    {
+      name: "Instrument Sans",
+      font: "Instrument+Sans",
+      weight: 600,
       style: "bold",
     },
   ];
