@@ -1,0 +1,54 @@
+---
+author: "yjsoon"
+pubDatetime: 2026-04-27T00:00:00.000Z
+title: "The agenticbuilders.sg site"
+description: "Half a year into the Agentic Builders Collective, we finally have a proper website — vibe-designed with Claude and Codex."
+tags: ["ai", "coding", "community"]
+featured: false
+draft: false
+---
+
+import YouTubeEmbed from "@/components/YouTubeEmbed.astro";
+import img1 from "../../assets/images/2026/04/agenticbuilders-sg-site-1.jpg";
+import img2 from "../../assets/images/2026/04/agenticbuilders-sg-site-2.jpg";
+import img3 from "../../assets/images/2026/04/agenticbuilders-sg-site-3.jpg";
+
+Time flies when you're having fun — it's been over half a year since [Chris Pecaut](https://sg.linkedin.com/in/cpecaut), [Jensen Loke](https://sg.linkedin.com/in/jensenloke), and I (and later our mysterious LinkedIn-less benefactor Ian Choo) started the [Agentic Builders Collective](https://agenticbuilders.sg)! And now we're done with our 6th meetup.
+
+(Fun fact: We were a "Claude Code Club" before an official one popped up, and we pivoted to a cooler name with so many more syllables. (We could have settled for Agentic Builders Club, but Collective has *two entire more syllables*!!))
+
+It's been especially great seeing former students show up at events after many years! This time round, we had (Dr!) [Gaurav Manek](https://sg.linkedin.com/in/gauravmanek) share his personal claw guidelines, and I got to tell folks this dude used to gleefully demo the, eh, very educational capabilities of Wireshark during Infocomm Club CCA time.
+
+<figure>
+  <img src={img1.src} alt="Ex-students Gaurav and Qiao Han with YJ at an Agentic Builders meetup" />
+  <figcaption>I don't remember these guys having been taller than me when I taught them 20 years ago. Have I shrunk</figcaption>
+</figure>
+
+(Pictured: With ex-students Gaurav and [Qiao Han](https://sg.linkedin.com/in/qiao-han-0372932a) — he with an all-time best/worst GitHub username — at Google, at our 5th meetup, which I forgot to post about, because I am too busy trying to use up all my tokens to post OK)
+
+We also now have a proper website, at [agenticbuilders.sg](https://agenticbuilders.sg), vibe-designed with Claude and Codex. To get a terminal-like look and feel, I had to regularly yell at the agents to **please stop using 1.125rem and 0.875rem**, *no*, **please** stop, **you introduced another font size again**, you stupid bot, I have it in bold in `CLAUDE.md` and `AGENTS.md`, aghhhh.
+
+<figure>
+  <img src={img2.src} alt="Screenshot of the agenticbuilders.sg site" />
+  <figcaption>Please, Claude and Codex, pleeeease stop changing my font sizes</figcaption>
+</figure>
+
+It's an Astro site, with data rendered from Markdown and YAML files, architected in a unique manner: If community members want, they can add themselves, and their projects, to it by submitting pull requests on GitHub at our hilariously long URL [github.com/agentic-builders-collective/agentic-builders-collective.github.io](https://github.com/agentic-builders-collective/agentic-builders-collective.github.io).
+
+The secret, though, is that *you don't need to understand Astro* — we left instructions and breadcrumbs for your favourite coding agent to help you out! (Thanks [Alex Teo](https://sg.linkedin.com/in/alexgteo) for the assist too!)
+
+<figure>
+  <img src={img3.src} alt="Repository instructions for coding agents" />
+  <figcaption>All these documents, written by AI, to be read by AI</figcaption>
+</figure>
+
+So, all you need to do is fork the repo*, point your agent at it, and demand that it add you, your project, and/or your article to our [community](https://agenticbuilders.sg/community) or [showcase](https://agenticbuilders.sg/showcase) page. It's like a puzzle game! That's really kinda boring! And in which you barely do anything!!
+
+(Not presentations for now; those are from actual in-person events; the next one is [23 May at AmChamSG](https://luma.com/2q4yargk)! Register now! Thanks [Hsien-Hsien Lei](https://sg.linkedin.com/in/hsienlei) for having us!)
+
+\*Don't know enough GitHub? I made a video. It has me trying to talk long enough that the agent finishes generating code.
+
+<YouTubeEmbed
+  videoId="s9k-xKiQaQ4"
+  title="How to contribute to the Agentic Builders Collective site"
+/>
