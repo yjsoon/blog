@@ -15,8 +15,16 @@
       @apply mb-3 font-display text-foreground;
     }
 
+    h2 {
+      @apply text-xl dark:text-[#ddd];
+    }
+
     h3 {
-      @apply italic;
+      @apply text-lg italic dark:text-[#ddd];
+    }
+
+    h4 {
+      @apply text-base dark:text-[#ddd];
     }
 
     p,
