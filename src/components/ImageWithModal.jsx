@@ -56,7 +56,7 @@ export default function ImageWithModal(props) {
           onClick={() => setOpen(true)}
         />
         {props.title && (
-          <figcaption className="text-foreground text-center text-sm">
+          <figcaption className="text-foreground text-center text-sm mt-1">
             {props.title}
           </figcaption>
         )}
@@ -89,7 +89,7 @@ export default function ImageWithModal(props) {
                     }
                   }}
                 />
-                <div className="text-foreground text-center text-sm mt-2">
+                <div className="text-foreground text-center text-sm mt-1">
                   {props.title ? props.title : props.alt}
                 </div>
               </div>

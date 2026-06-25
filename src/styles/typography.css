@@ -62,7 +62,7 @@
     }
 
     figcaption {
-      @apply opacity-75;
+      @apply mt-1 text-center opacity-75;
     }
 
     table {
