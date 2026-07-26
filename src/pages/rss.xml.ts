@@ -158,6 +158,7 @@ async function resolveImagePath(imageName: string, postBody: string): Promise<st
       // Return the src property of the imported image
       return imageModule.default.src;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Error loading image ${absolutePath}:`, error);
     }
   }
