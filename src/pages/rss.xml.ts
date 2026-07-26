@@ -10,6 +10,56 @@ const parser = new MarkdownIt({
   html: true, // Enable HTML tags in source
 });
 
+function toAbsoluteSiteUrl(path: string): string {
+  if (!path.startsWith("/")) {
+    return path;
+  }
+
+  return new URL(path, SITE.website).toString();
+}
+
+function getHtmlAttribute(attributes: string, name: string): string | null {
+  const match = attributes.match(
+    new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, "i")
+  );
+
+  return match?.[1] ?? match?.[2] ?? null;
+}
+
+function escapeHtmlAttribute(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function replaceVideosWithLinks(content: string): string {
+  return content.replace(
+    /<video\b([^>]*)>[\s\S]*?<\/video>/gi,
+    (_, attributes: string) => {
+      const source = getHtmlAttribute(attributes, "src");
+
+      if (!source) {
+        return "\n\n[Embedded video unavailable in this feed]\n\n";
+      }
+
+      const videoUrl = escapeHtmlAttribute(toAbsoluteSiteUrl(source));
+      const poster = getHtmlAttribute(attributes, "poster");
+      const label = escapeHtmlAttribute(
+        getHtmlAttribute(attributes, "aria-label") || "Embedded video"
+      );
+      const posterLink = poster
+        ? `<a href="${videoUrl}"><img src="${escapeHtmlAttribute(
+            toAbsoluteSiteUrl(poster)
+          )}" alt="${label}" /></a>\n`
+        : "";
+
+      return `\n\n${posterLink}<p><a href="${videoUrl}">▶ Watch video</a></p>\n\n`;
+    }
+  );
+}
+
 // Dynamic import of all images from assets
 const imageModules = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{png,jpg,jpeg,gif,webp}');
 
@@ -89,6 +139,10 @@ export async function GET() {
         cleanBody = cleanBody.replace(stringImageRegex, '\n\n<img src="$1" alt="$2" />\n\n');
         cleanBody = cleanBody.replace(multilineStringRegex, '\n\n<img src="$1" alt="$2" />\n\n');
         
+        // RSS readers inconsistently support video elements. Use a linked poster
+        // and an absolute video URL so the content works across feed clients.
+        cleanBody = replaceVideosWithLinks(cleanBody);
+
         // Convert YouTubeEmbed components to clickable thumbnail + link
         cleanBody = cleanBody.replace(
           /<YouTubeEmbed\s*\n?\s*videoId="([^"]+)"\s*\n?\s*(?:title="([^"]*)")?\s*\n?\s*\/?>/gm,
