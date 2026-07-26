@@ -31,6 +31,11 @@ Deployed automatically via **Cloudflare Pages** connected to the GitHub reposito
 - Output directory: `dist`
 - Node.js version: Specified in `.nvmrc`
 
+## Content Authoring
+
+- See [RSS content rendering](docs/rss-content.md) for feed-safe video markup
+  and other RSS compatibility notes.
+
 ## License
 
 - Code: MIT — see [LICENSE](./LICENSE).

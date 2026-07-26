@@ -10,6 +10,122 @@ const parser = new MarkdownIt({
   html: true, // Enable HTML tags in source
 });
 
+function toAbsoluteSiteUrl(path: string, baseUrl: URL): string {
+  return new URL(path, baseUrl).toString();
+}
+
+function getHtmlAttribute(attributes: string, name: string): string | null {
+  const attributeRegex =
+    /\b([A-Za-z_:][\w:.-]*)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+  let match;
+
+  while ((match = attributeRegex.exec(attributes)) !== null) {
+    if (match[1].toLowerCase() === name.toLowerCase()) {
+      return parser.utils.unescapeAll(match[2] ?? match[3] ?? "");
+    }
+  }
+
+  return null;
+}
+
+function escapeHtmlAttribute(value: string): string {
+  return parser.utils.escapeHtml(value);
+}
+
+type CharacterRange = {
+  start: number;
+  end: number;
+};
+
+function getProtectedMarkdownRanges(content: string): CharacterRange[] {
+  const lineStarts = [0];
+
+  for (let index = 0; index < content.length; index++) {
+    if (content[index] === "\n") {
+      lineStarts.push(index + 1);
+    }
+  }
+
+  const ranges = parser
+    .parse(content, {})
+    .filter(
+      token =>
+        token.type === "fence" ||
+        token.type === "code_block" ||
+        token.children?.some(child => child.type === "code_inline")
+    )
+    .flatMap(token => {
+      if (!token.map) {
+        return [];
+      }
+
+      return [
+        {
+          start: lineStarts[token.map[0]] ?? content.length,
+          end: lineStarts[token.map[1]] ?? content.length,
+        },
+      ];
+    });
+
+  for (const pattern of [/<!--[\s\S]*?-->/g, /\{\/\*[\s\S]*?\*\/\}/g]) {
+    for (const match of content.matchAll(pattern)) {
+      const start = match.index ?? 0;
+      ranges.push({ start, end: start + match[0].length });
+    }
+  }
+
+  return ranges;
+}
+
+function replaceVideosWithLinks(content: string, postUrl: URL): string {
+  if (!content.includes("<video")) {
+    return content;
+  }
+
+  const protectedRanges = getProtectedMarkdownRanges(content);
+
+  return content.replace(
+    /^ {0,3}<video\b([^>]*)>([\s\S]*?)<\/video>[ \t]*$/gm,
+    (match, attributes: string, body: string, offset: number) => {
+      const end = offset + match.length;
+
+      if (
+        protectedRanges.some(
+          range => offset < range.end && end > range.start
+        )
+      ) {
+        return match;
+      }
+
+      const source =
+        getHtmlAttribute(attributes, "src") ??
+        getHtmlAttribute(
+          body.match(/<source\b([^>]*)>/)?.[1] ?? "",
+          "src"
+        );
+
+      if (!source) {
+        return "\n\n[Embedded video unavailable in this feed]\n\n";
+      }
+
+      const videoUrl = escapeHtmlAttribute(
+        toAbsoluteSiteUrl(source, postUrl)
+      );
+      const poster = getHtmlAttribute(attributes, "poster");
+      const label = escapeHtmlAttribute(
+        getHtmlAttribute(attributes, "aria-label") || "Embedded video"
+      );
+      const posterLink = poster
+        ? `<a href="${videoUrl}"><img src="${escapeHtmlAttribute(
+            toAbsoluteSiteUrl(poster, postUrl)
+          )}" alt="${label}" /></a>\n`
+        : "";
+
+      return `\n\n${posterLink}<p><a href="${videoUrl}">▶ Watch video</a></p>\n\n`;
+    }
+  );
+}
+
 // Dynamic import of all images from assets
 const imageModules = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{png,jpg,jpeg,gif,webp}');
 
@@ -42,6 +158,7 @@ async function resolveImagePath(imageName: string, postBody: string): Promise<st
       // Return the src property of the imported image
       return imageModule.default.src;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Error loading image ${absolutePath}:`, error);
     }
   }
@@ -56,6 +173,8 @@ export async function GET() {
   
   const items = await Promise.all(
     sortedPosts.map(async (post) => {
+      const postPath = getPath(post.id, post.filePath);
+      const postUrl = new URL(`${postPath}/`, SITE.website);
       let content = post.data.description;
       
       if (post.body) {
@@ -89,6 +208,10 @@ export async function GET() {
         cleanBody = cleanBody.replace(stringImageRegex, '\n\n<img src="$1" alt="$2" />\n\n');
         cleanBody = cleanBody.replace(multilineStringRegex, '\n\n<img src="$1" alt="$2" />\n\n');
         
+        // RSS readers inconsistently support video elements. Use a linked poster
+        // and an absolute video URL so the content works across feed clients.
+        cleanBody = replaceVideosWithLinks(cleanBody, postUrl);
+
         // Convert YouTubeEmbed components to clickable thumbnail + link
         cleanBody = cleanBody.replace(
           /<YouTubeEmbed\s*\n?\s*videoId="([^"]+)"\s*\n?\s*(?:title="([^"]*)")?\s*\n?\s*\/?>/gm,
@@ -110,7 +233,7 @@ export async function GET() {
       }
       
       return {
-        link: getPath(post.id, post.filePath),
+        link: postPath,
         title: post.data.title,
         description: post.data.description,
         content,

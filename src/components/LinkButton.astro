@@ -1,12 +1,13 @@
 ---
-export interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends Omit<HTMLAttributes<"a">, "href"> {
   id?: string;
   href: string;
   class?: string;
   ariaLabel?: string;
   title?: string;
   disabled?: boolean;
-  [key: string]: any;
 }
 
 const {
