@@ -10,8 +10,8 @@ const parser = new MarkdownIt({
   html: true, // Enable HTML tags in source
 });
 
-function toAbsoluteSiteUrl(path: string): string {
-  return new URL(path, SITE.website).toString();
+function toAbsoluteSiteUrl(path: string, baseUrl: URL): string {
+  return new URL(path, baseUrl).toString();
 }
 
 function getHtmlAttribute(attributes: string, name: string): string | null {
@@ -77,7 +77,7 @@ function getProtectedMarkdownRanges(content: string): CharacterRange[] {
   return ranges;
 }
 
-function replaceVideosWithLinks(content: string): string {
+function replaceVideosWithLinks(content: string, postUrl: URL): string {
   if (!content.includes("<video")) {
     return content;
   }
@@ -108,14 +108,16 @@ function replaceVideosWithLinks(content: string): string {
         return "\n\n[Embedded video unavailable in this feed]\n\n";
       }
 
-      const videoUrl = escapeHtmlAttribute(toAbsoluteSiteUrl(source));
+      const videoUrl = escapeHtmlAttribute(
+        toAbsoluteSiteUrl(source, postUrl)
+      );
       const poster = getHtmlAttribute(attributes, "poster");
       const label = escapeHtmlAttribute(
         getHtmlAttribute(attributes, "aria-label") || "Embedded video"
       );
       const posterLink = poster
         ? `<a href="${videoUrl}"><img src="${escapeHtmlAttribute(
-            toAbsoluteSiteUrl(poster)
+            toAbsoluteSiteUrl(poster, postUrl)
           )}" alt="${label}" /></a>\n`
         : "";
 
@@ -170,6 +172,8 @@ export async function GET() {
   
   const items = await Promise.all(
     sortedPosts.map(async (post) => {
+      const postPath = getPath(post.id, post.filePath);
+      const postUrl = new URL(`${postPath}/`, SITE.website);
       let content = post.data.description;
       
       if (post.body) {
@@ -205,7 +209,7 @@ export async function GET() {
         
         // RSS readers inconsistently support video elements. Use a linked poster
         // and an absolute video URL so the content works across feed clients.
-        cleanBody = replaceVideosWithLinks(cleanBody);
+        cleanBody = replaceVideosWithLinks(cleanBody, postUrl);
 
         // Convert YouTubeEmbed components to clickable thumbnail + link
         cleanBody = cleanBody.replace(
@@ -228,7 +232,7 @@ export async function GET() {
       }
       
       return {
-        link: getPath(post.id, post.filePath),
+        link: postPath,
         title: post.data.title,
         description: post.data.description,
         content,
