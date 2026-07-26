@@ -11,34 +11,98 @@ const parser = new MarkdownIt({
 });
 
 function toAbsoluteSiteUrl(path: string): string {
-  if (!path.startsWith("/")) {
-    return path;
-  }
-
   return new URL(path, SITE.website).toString();
 }
 
 function getHtmlAttribute(attributes: string, name: string): string | null {
-  const match = attributes.match(
-    new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, "i")
-  );
+  const attributeRegex =
+    /\b([A-Za-z_:][\w:.-]*)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+  let match;
 
-  return match?.[1] ?? match?.[2] ?? null;
+  while ((match = attributeRegex.exec(attributes)) !== null) {
+    if (match[1].toLowerCase() === name.toLowerCase()) {
+      return parser.utils.unescapeAll(match[2] ?? match[3] ?? "");
+    }
+  }
+
+  return null;
 }
 
 function escapeHtmlAttribute(value: string): string {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+  return parser.utils.escapeHtml(value);
+}
+
+type CharacterRange = {
+  start: number;
+  end: number;
+};
+
+function getProtectedMarkdownRanges(content: string): CharacterRange[] {
+  const lineStarts = [0];
+
+  for (let index = 0; index < content.length; index++) {
+    if (content[index] === "\n") {
+      lineStarts.push(index + 1);
+    }
+  }
+
+  const ranges = parser
+    .parse(content, {})
+    .filter(
+      token =>
+        token.type === "fence" ||
+        token.type === "code_block" ||
+        token.children?.some(child => child.type === "code_inline")
+    )
+    .flatMap(token => {
+      if (!token.map) {
+        return [];
+      }
+
+      return [
+        {
+          start: lineStarts[token.map[0]] ?? content.length,
+          end: lineStarts[token.map[1]] ?? content.length,
+        },
+      ];
+    });
+
+  for (const pattern of [/<!--[\s\S]*?-->/g, /\{\/\*[\s\S]*?\*\/\}/g]) {
+    for (const match of content.matchAll(pattern)) {
+      const start = match.index ?? 0;
+      ranges.push({ start, end: start + match[0].length });
+    }
+  }
+
+  return ranges;
 }
 
 function replaceVideosWithLinks(content: string): string {
+  if (!content.includes("<video")) {
+    return content;
+  }
+
+  const protectedRanges = getProtectedMarkdownRanges(content);
+
   return content.replace(
-    /<video\b([^>]*)>[\s\S]*?<\/video>/gi,
-    (_, attributes: string) => {
-      const source = getHtmlAttribute(attributes, "src");
+    /^ {0,3}<video\b([^>]*)>([\s\S]*?)<\/video>[ \t]*$/gm,
+    (match, attributes: string, body: string, offset: number) => {
+      const end = offset + match.length;
+
+      if (
+        protectedRanges.some(
+          range => offset < range.end && end > range.start
+        )
+      ) {
+        return match;
+      }
+
+      const source =
+        getHtmlAttribute(attributes, "src") ??
+        getHtmlAttribute(
+          body.match(/<source\b([^>]*)>/)?.[1] ?? "",
+          "src"
+        );
 
       if (!source) {
         return "\n\n[Embedded video unavailable in this feed]\n\n";
