@@ -19,6 +19,14 @@ Formatting changes are allowed when they do not change the text:
 - Embed linked videos using the existing component, such as `YouTubeEmbed`. Preserve timestamps from the source; YouTube timestamps use seconds (for example, 17 minutes becomes `start=1020`).
 - Do not replace a video with a summary or paraphrase.
 
+Keep presentation compact and literal:
+
+- If a video is embedded immediately after a source sentence, keep the sentence as a short cue such as `17 minutes into this video:` and do not add a second visible URL.
+- If the same destination appears later as a named link, remove a redundant earlier link without changing the surrounding wording.
+- Use italics for a short inline quotation when requested; use a blockquote for a long quotation and do not retain quotation marks that duplicate the blockquote styling.
+- Keep consecutive bullet items adjacent unless the source clearly contains separate paragraphs; do not insert blank lines between ordinary bullets.
+- Keep the final LinkedIn backlink as one compact paragraph so its punctuation does not render on a line by itself.
+
 ## Links
 
 - Resolve LinkedIn short links (`lnkd.in`) and other platform redirects to the original destination, then link to that original source in the blog post.
