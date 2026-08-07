@@ -27,6 +27,8 @@ npm run build
 
 Deployed automatically via **Cloudflare Pages** connected to the GitHub repository. Push to `main` branch triggers automatic deployment.
 
+When asked to “commit and push,” publish the requested changes all the way to `main`, wait for Cloudflare Pages to finish, and verify the live URL. A feature-branch push by itself is not a production deployment.
+
 - Build command: `npm run build`
 - Output directory: `dist`
 - Node.js version: Specified in `.nvmrc`

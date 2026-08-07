@@ -9,10 +9,12 @@ Repository guide for coding agents. Keep this file short; put durable project co
 - [src/config.ts](src/config.ts): site settings, pagination, timezone, scheduled post margin.
 - [src/content.config.ts](src/content.config.ts): blog content schema and loader rules.
 - [astro.config.ts](astro.config.ts): Astro integrations, markdown plugins, Shiki, and env schema.
+- [docs/content-workflow.md](docs/content-workflow.md): rules for adapting social posts into blog posts.
 
 ## Working Rules
 
 - Prefer small, atomic changes. Persist non-trivial decisions in repo docs instead of chat.
+- For social-to-blog adaptations, follow [docs/content-workflow.md](docs/content-workflow.md): preserve source text verbatim and limit changes to formatting, embeds, asset handling, and link resolution.
 - Validate the narrowest relevant surface, but default to `npm run build` for changes that affect routes, content, rendering, feeds, OG images, or search.
 - Run `npm run lint` for JS/TS/Astro edits and `npm run format:check` when formatting drift is likely.
 - Do not edit `public/pagefind` by hand; `npm run build` regenerates and recopies it.
