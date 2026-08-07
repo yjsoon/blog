@@ -38,3 +38,9 @@ Keep presentation compact and literal:
 
 - Check the adapted body against the source before editing beyond formatting and link/media substitutions.
 - Run Prettier on the changed content file and `npm run build` for content changes. Confirm the generated page contains the expected original link, media embed, and LinkedIn backlink.
+
+## Publishing
+
+- In this project, interpret “commit and push” as “publish”: commit the intended changes, push the branch, land it on `main`, wait for Cloudflare Pages to deploy, and verify the live URL.
+- Pushing a feature branch alone is not publication. When working off `main`, create or update the merge path to `main` and complete it before reporting success.
+- Keep unrelated working-tree changes out of the published scope, and report the commit, `main` status, deployment status, and live verification separately.
