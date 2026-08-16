@@ -4,6 +4,7 @@
   /* ===== Override default Tailwind Typography styles ===== */
   .app-prose {
     @apply prose;
+    --tw-prose-body: var(--foreground);
     font-size: 1.12rem;
     line-height: 1.58;
 
@@ -35,7 +36,7 @@
     table {
       @apply text-foreground;
     }
-    
+
     strong,
     b {
       @apply font-bold;
@@ -81,7 +82,7 @@
     }
 
     code {
-      @apply rounded bg-muted/75 p-1 break-words font-mono text-foreground before:content-none after:content-none;
+      @apply rounded bg-muted/75 p-1 font-mono break-words text-foreground before:content-none after:content-none;
     }
 
     .astro-code code {
@@ -89,10 +90,11 @@
     }
 
     blockquote {
-      @apply border-s-accent/80 break-words font-sans opacity-80;
+      @apply border-s-accent/80 font-sans break-words opacity-80;
+
       quotes: none;
     }
-    
+
     blockquote:before,
     blockquote:after {
       content: none !important;
@@ -108,6 +110,14 @@
 
     pre {
       @apply font-mono focus-visible:border-transparent focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed;
+    }
+
+    .post-backlink {
+      @apply mt-6 text-sm text-muted-foreground;
+    }
+
+    .post-backlink a {
+      @apply text-current underline decoration-dashed underline-offset-4 hover:opacity-100;
     }
   }
 
