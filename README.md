@@ -8,6 +8,7 @@ Personal blog of YJ Soon, built with [Astro](https://astro.build/).
 - **Theme**: Based on [AstroPaper](https://github.com/satnaing/astro-paper) by Sat Naing
 - **Styling**: [TailwindCSS](https://tailwindcss.com/)
 - **Search**: [Pagefind](https://pagefind.app/)
+- **SEO**: [seo-graph](https://github.com/iannuttall/seo-graph) for JSON-LD, `llms.txt`, and Markdown twins (see [docs/seo-graph.md](docs/seo-graph.md))
 - **Interactive Components**: [React](https://react.dev/)
 
 ## Running Locally
@@ -47,6 +48,7 @@ When asked to “commit and push,” publish the requested changes all the way t
   original page or https://yjsoon.com.
 
 Notes
+
 - Third‑party trademarks and logos are the property of their respective owners.
 - Some images or embeds may have their own licenses; where applicable, those
   are indicated in the post.

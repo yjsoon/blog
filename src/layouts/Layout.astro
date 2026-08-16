@@ -3,6 +3,13 @@ import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import Logo from "@/assets/logo.png";
+import {
+  buildSeoGraph,
+  canonicalHref,
+  defaultPageImage,
+  type BreadcrumbCrumb,
+  type SchemaKind,
+} from "@/utils/seoGraph";
 import "@/styles/global.css";
 
 export interface Props {
@@ -11,41 +18,52 @@ export interface Props {
   profile?: string;
   description?: string;
   ogImage?: string;
-  canonicalURL?: string;
+  canonicalURL?: string | URL;
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  schemaKind?: SchemaKind;
+  breadcrumbs?: BreadcrumbCrumb[];
+  headline?: string;
+  articleSection?: string;
 }
 
 const {
   title = SITE.title,
   author = SITE.author,
-  profile = SITE.profile,
   description = SITE.desc,
   ogImage = SITE.ogImage ? `/${SITE.ogImage}` : "/og.png",
   canonicalURL = new URL(Astro.url.pathname, Astro.url),
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  schemaKind = "page",
+  breadcrumbs,
+  headline,
+  articleSection,
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
-      "@type": "Person",
-      name: `${author}`,
-      ...(profile && { url: profile }),
-    },
-  ],
-};
+const pageUrl = canonicalHref(canonicalURL);
+const structuredData = buildSeoGraph({
+  kind: schemaKind,
+  url: pageUrl,
+  name: title,
+  description,
+  headline,
+  image:
+    ogImage === (SITE.ogImage ? `/${SITE.ogImage}` : "/og.png")
+      ? defaultPageImage()
+      : {
+          url: socialImageURL.href,
+          width: 1200,
+          height: 630,
+        },
+  datePublished: pubDatetime,
+  dateModified: modDatetime,
+  breadcrumbs,
+  articleSection,
+});
 ---
 
 <!doctype html>
@@ -143,20 +161,20 @@ const structuredData = {
     <slot />
     <script>
       function initEmailLinks() {
-        document.querySelectorAll('.js-email').forEach(el => {
-          const a = el.closest('a') || el;
-          const u = a.getAttribute('data-u');
-          const d = a.getAttribute('data-d');
+        document.querySelectorAll(".js-email").forEach(el => {
+          const a = el.closest("a") || el;
+          const u = a.getAttribute("data-u");
+          const d = a.getAttribute("data-d");
           if (u && d) {
-            a.addEventListener('click', (e) => {
+            a.addEventListener("click", e => {
               e.preventDefault();
-              window.location.href = 'mailto:' + u + '@' + d;
+              window.location.href = "mailto:" + u + "@" + d;
             });
           }
         });
       }
       initEmailLinks();
-      document.addEventListener('astro:after-swap', initEmailLinks);
+      document.addEventListener("astro:after-swap", initEmailLinks);
     </script>
   </body>
 </html>

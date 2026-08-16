@@ -10,6 +10,7 @@ Repository guide for coding agents. Keep this file short; put durable project co
 - [src/content.config.ts](src/content.config.ts): blog content schema and loader rules.
 - [astro.config.ts](astro.config.ts): Astro integrations, markdown plugins, Shiki, and env schema.
 - [docs/content-workflow.md](docs/content-workflow.md): rules for adapting social posts into blog posts.
+- [docs/seo-graph.md](docs/seo-graph.md): schema.org JSON-LD, llms.txt, and agent-markdown integration.
 
 ## Working Rules
 

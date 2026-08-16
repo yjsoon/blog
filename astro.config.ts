@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
+import { agentMarkdown } from "@iannuttall/seo-graph-astro";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import {
@@ -24,6 +25,14 @@ export default defineConfig({
     mdx(),
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
+    }),
+    agentMarkdown({
+      llmsTxt: {
+        title: SITE.title,
+        summary: SITE.desc,
+        details:
+          "Personal blog of YJ Soon. Content is licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). RSS is at /rss.xml. A corpus-wide JSON-LD graph is at /schema/blog.json.",
+      },
     }),
   ],
   markdown: {

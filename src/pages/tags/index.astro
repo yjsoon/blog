@@ -13,7 +13,14 @@ const posts = await getCollection("blog");
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout
+  title={`Tags | ${SITE.title}`}
+  schemaKind="collection"
+  breadcrumbs={[
+    { name: "Home", url: SITE.website },
+    { name: "Tags", url: new URL("/tags", SITE.website).href },
+  ]}
+>
   <Header />
   <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
     <ul>
