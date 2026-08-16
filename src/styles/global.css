@@ -9,6 +9,7 @@ html[data-theme="light"] {
   --foreground: #282728;
   --accent: #b85450;
   --muted: #ece9e3;
+  --muted-foreground: #5c5956;
   --border: #e2dfd9;
 }
 
@@ -19,6 +20,7 @@ html[data-theme="dark"] {
   --accent: #d4706c;
   /* Subtle surfaces on dark */
   --muted: #333333;
+  --muted-foreground: #c4c8d0;
   /* More separation on dark */
   --border: #555555;
 }
@@ -28,6 +30,7 @@ html[data-theme="dark"] {
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --font-sans:
     "Instrument Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,

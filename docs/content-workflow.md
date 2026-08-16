@@ -25,7 +25,7 @@ Keep presentation compact and literal:
 - If the same destination appears later as a named link, remove a redundant earlier link without changing the surrounding wording.
 - Use italics for a short inline quotation when requested; use a blockquote for a long quotation and do not retain quotation marks that duplicate the blockquote styling.
 - Keep consecutive bullet items adjacent unless the source clearly contains separate paragraphs; do not insert blank lines between ordinary bullets.
-- Keep the final LinkedIn backlink as one compact paragraph so its punctuation does not render on a line by itself.
+- Keep the final LinkedIn backlink as one compact paragraph so its punctuation does not render on a line by itself. Use the `LinkedInBacklink` component for that closer so it stays readable in both light and dark themes.
 
 ## Links
 

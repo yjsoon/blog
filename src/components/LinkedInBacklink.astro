@@ -1,0 +1,12 @@
+---
+export interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<p class="post-backlink">
+  To discuss, or if you feel compelled to press some kind of reaction button,
+  feel free to comment on the <a href={href}>LinkedIn version of this post</a>.
+</p>
