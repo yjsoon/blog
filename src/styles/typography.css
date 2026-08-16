@@ -91,6 +91,7 @@
 
     blockquote {
       @apply border-s-accent/80 font-sans break-words opacity-80;
+
       quotes: none;
     }
 
@@ -116,7 +117,7 @@
     }
 
     .post-backlink a {
-      @apply text-current underline decoration-dashed underline-offset-4 hover:opacity-80;
+      @apply text-current underline decoration-dashed underline-offset-4 hover:opacity-100;
     }
   }
 
