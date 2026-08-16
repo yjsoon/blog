@@ -56,13 +56,13 @@ const PERSON_SAME_AS = [
 
 export const ids = makeIds({
   siteUrl: SITE.website,
-  personUrl: SITE.profile,
+  personUrl: pageUrl(SITE.profile),
 });
 
 export const origin = SITE.website.replace(/\/+$/, "");
 export const blogId = `${origin}${BLOG_PATH}/#blog`;
-export const blogUrl = absoluteUrl(BLOG_PATH);
-export const aboutUrl = SITE.profile;
+export const blogUrl = pageUrl(BLOG_PATH);
+export const aboutUrl = pageUrl(SITE.profile);
 export const language = SITE.lang || "en";
 
 export const personImage: SeoImage = {
@@ -76,13 +76,27 @@ export function absoluteUrl(path: string): string {
   return new URL(path, SITE.website).href;
 }
 
+/** HTML page URL with a trailing slash, matching Astro's directory output. */
+export function pageUrl(path: string): string {
+  const url = new URL(absoluteUrl(path));
+  if (url.search || url.hash) return url.href;
+  if (url.pathname !== "/" && !url.pathname.endsWith("/")) {
+    url.pathname = `${url.pathname}/`;
+  }
+  return url.href;
+}
+
 export function canonicalHref(url: string | URL): string {
-  return new URL(url, SITE.website).href;
+  return pageUrl(String(url));
+}
+
+export function fallbackDescription(value?: string | null): string {
+  return value?.trim() || SITE.desc;
 }
 
 export function postCanonicalUrl(post: CollectionEntry<"blog">): string {
   if (post.data.canonicalURL) return canonicalHref(post.data.canonicalURL);
-  return absoluteUrl(getPath(post.id, post.filePath));
+  return pageUrl(getPath(post.id, post.filePath));
 }
 
 export function postImage(post: CollectionEntry<"blog">): SeoImage {
@@ -186,9 +200,9 @@ export function siteWidePieces(): GraphEntity[] {
           { name: "Home", url: SITE.website },
           { name: "About", url: aboutUrl },
           { name: "Posts", url: blogUrl },
-          { name: "Tags", url: absoluteUrl("/tags") },
+          { name: "Tags", url: pageUrl("/tags") },
           ...(SITE.showArchives
-            ? [{ name: "Archives", url: absoluteUrl("/archives") }]
+            ? [{ name: "Archives", url: pageUrl("/archives") }]
             : []),
         ],
       },
@@ -230,6 +244,7 @@ export function blogPostPieces(input: {
 
 export function buildSeoGraphPieces(input: BuildSeoGraphInput): GraphEntity[] {
   const url = canonicalHref(input.url);
+  const description = fallbackDescription(input.description);
   const image = input.image ?? defaultPageImage();
   const pageType = pageTypeForKind(input.kind);
   const about =
@@ -245,7 +260,7 @@ export function buildSeoGraphPieces(input: BuildSeoGraphInput): GraphEntity[] {
       {
         url,
         name: input.name,
-        description: input.description,
+        description,
         isPartOf: { "@id": ids.website },
         inLanguage: language,
         datePublished: input.datePublished,
@@ -282,7 +297,7 @@ export function buildSeoGraphPieces(input: BuildSeoGraphInput): GraphEntity[] {
           url,
           items: input.breadcrumbs.map(item => ({
             name: item.name,
-            url: canonicalHref(item.url),
+            url: pageUrl(item.url),
           })),
         },
         ids
@@ -296,7 +311,7 @@ export function buildSeoGraphPieces(input: BuildSeoGraphInput): GraphEntity[] {
         {
           url,
           headline: input.headline ?? input.name,
-          description: input.description,
+          description,
           datePublished: input.datePublished,
           dateModified: input.dateModified ?? undefined,
           author: { "@id": ids.person },

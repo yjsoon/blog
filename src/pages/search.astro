@@ -11,6 +11,7 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
 
 <Layout
   title={`Search | ${SITE.title}`}
+  description="Search any article ..."
   breadcrumbs={[
     { name: "Home", url: SITE.website },
     { name: "Search", url: new URL("/search", SITE.website).href },

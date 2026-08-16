@@ -12,7 +12,13 @@ engines and AI agents can read the same structured facts.
 
 The Astro package lists Astro 7 as an optional peer. This project stays on
 Astro 5 and installs with `legacy-peer-deps` (see `.npmrc`). The hooks we
-use (`astro:config:*` and `astro:build:done`) exist in Astro 5.
+use (`astro:config:*` and `astro:build:done`) exist in Astro 5. That install
+mode also nests some transitive packages, so `vite` and the React types are
+listed directly.
+
+Page URLs in the graph use trailing slashes to match Astro's directory
+output and the last breadcrumb item. Empty post descriptions fall back to
+`SITE.desc` so the agent-markdown pipeline has a meta description to read.
 
 ## Page JSON-LD
 

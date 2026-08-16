@@ -6,19 +6,9 @@ export const GET = createApiCatalog({
   schemaEndpoints: [{ path: "/schema/blog.json", schemaType: "BlogPosting" }],
   schemaMap: { path: "/schemamap.xml" },
   additional: [
-    {
-      anchor: "/llms.txt",
-      type: "text/plain",
-      serviceDoc: "https://github.com/iannuttall/seo-graph",
-    },
-    {
-      anchor: "/rss.xml",
-      type: "application/rss+xml",
-    },
-    {
-      anchor: "/agent-routes.json",
-      type: "application/json",
-    },
+    { anchor: "/llms.txt" },
+    { anchor: "/rss.xml" },
+    { anchor: "/agent-routes.json" },
   ],
   cacheControl: "max-age=3600",
 });

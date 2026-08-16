@@ -32,6 +32,18 @@ export default defineConfig({
         summary: SITE.desc,
         details:
           "Personal blog of YJ Soon. Content is licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). RSS is at /rss.xml. A corpus-wide JSON-LD graph is at /schema/blog.json.",
+        sections: [
+          {
+            heading: "Start here",
+            items: [
+              { path: "/", label: "Home" },
+              { path: "/about", label: "About" },
+              { path: "/posts", label: "All posts" },
+              { path: "/archives", label: "Archives" },
+            ],
+          },
+        ],
+        autoSection: { heading: "All pages", position: "after" },
       },
     }),
   ],

@@ -38,6 +38,7 @@
     "schema-dts": "^2.0.0",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.1.11",
+    "vite": "^6.4.3",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
@@ -47,6 +48,8 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/markdown-it": "^14.1.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "@types/sanitize-html": "^2.16.0",
     "@typescript-eslint/parser": "^8.36.0",
     "eslint": "^9.30.1",

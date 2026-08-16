@@ -33,6 +33,7 @@ const { page, tagName } = Astro.props;
 
 <Layout
   title={`Tag: ${tagName} | ${SITE.title}`}
+  description={`All the articles with the tag "${tagName}".`}
   schemaKind="collection"
   breadcrumbs={[
     { name: "Home", url: SITE.website },

@@ -17,6 +17,10 @@ const { frontmatter } = Astro.props;
 
 <Layout
   title={`${frontmatter.title} | ${SITE.title}`}
+  description={
+    frontmatter.description ??
+    "YJ Soon — teacher, designer, and programmer in Singapore. Co-founder of Tinkertanker."
+  }
   schemaKind="about"
   breadcrumbs={[
     { name: "Home", url: SITE.website },
