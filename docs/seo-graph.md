@@ -67,3 +67,6 @@ use the `.md` twins and `llms.txt` instead.
 - A Worker handler for `Accept: text/markdown` at canonical URLs
 - `llms-full.txt` (optional one-file export; not part of the llms.txt v2
   proposal)
+- Astro 7 upgrade: tracked in
+  [issue #11](https://github.com/yjsoon/blog/issues/11). Not required for
+  this integration.
