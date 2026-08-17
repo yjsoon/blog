@@ -31,7 +31,24 @@ const { tag } = params;
 const { page, tagName } = Astro.props;
 ---
 
-<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
+<Layout
+  title={`Tag: ${tagName} | ${SITE.title}`}
+  description={`All the articles with the tag "${tagName}".`}
+  schemaKind="collection"
+  breadcrumbs={[
+    { name: "Home", url: SITE.website },
+    { name: "Tags", url: new URL("/tags", SITE.website).href },
+    { name: tagName, url: new URL(`/tags/${tag}`, SITE.website).href },
+    ...(page.currentPage > 1
+      ? [
+          {
+            name: `Page ${page.currentPage}`,
+            url: new URL(Astro.url.pathname, SITE.website).href,
+          },
+        ]
+      : []),
+  ]}
+>
   <Header />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}

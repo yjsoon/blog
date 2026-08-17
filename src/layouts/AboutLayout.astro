@@ -15,11 +15,25 @@ export interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={`${frontmatter.title} | ${SITE.title}`}>
+<Layout
+  title={`${frontmatter.title} | ${SITE.title}`}
+  description={
+    frontmatter.description ??
+    "YJ Soon — teacher, designer, and programmer in Singapore. Co-founder of Tinkertanker."
+  }
+  schemaKind="about"
+  breadcrumbs={[
+    { name: "Home", url: SITE.website },
+    { name: frontmatter.title, url: SITE.profile },
+  ]}
+>
   <Header />
   <Breadcrumb />
   <main id="main-content">
-    <section id="about" class="app-prose mb-28 max-w-content prose-img:border-0">
+    <section
+      id="about"
+      class="app-prose mb-28 max-w-content prose-img:border-0"
+    >
       <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
       <slot />
     </section>

@@ -18,7 +18,23 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<Layout title={`Posts | ${SITE.title}`}>
+<Layout
+  title={`Posts | ${SITE.title}`}
+  description="All the articles I've posted."
+  schemaKind="collection"
+  breadcrumbs={[
+    { name: "Home", url: SITE.website },
+    { name: "Posts", url: new URL("/posts", SITE.website).href },
+    ...(page.currentPage > 1
+      ? [
+          {
+            name: `Page ${page.currentPage}`,
+            url: new URL(Astro.url.pathname, SITE.website).href,
+          },
+        ]
+      : []),
+  ]}
+>
   <Header />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
     <ul>

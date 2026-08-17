@@ -31,7 +31,15 @@ const months = [
 ];
 ---
 
-<Layout title={`Archives | ${SITE.title}`}>
+<Layout
+  title={`Archives | ${SITE.title}`}
+  description="All the articles I've archived."
+  schemaKind="collection"
+  breadcrumbs={[
+    { name: "Home", url: SITE.website },
+    { name: "Archives", url: new URL("/archives", SITE.website).href },
+  ]}
+>
   <Header />
   <Main pageTitle="Archives" pageDesc="All the articles I've archived.">
     {
