@@ -142,7 +142,9 @@ const nextPost =
       {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
     </ul>
 
-    <BackToTopButton />
+    <div data-agent-markdown="exclude">
+      <BackToTopButton />
+    </div>
 
     <div data-agent-markdown="exclude">
       <ShareLinks />
