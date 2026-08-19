@@ -10,11 +10,9 @@ engines and AI agents can read the same structured facts.
 - [`@iannuttall/seo-graph-astro`](https://www.npmjs.com/package/@iannuttall/seo-graph-astro)
   emits Markdown twins, `llms.txt`, and a route manifest at build time.
 
-The Astro package lists Astro 7 as an optional peer. This project stays on
-Astro 5 and installs with `legacy-peer-deps` (see `.npmrc`). The hooks we
-use (`astro:config:*` and `astro:build:done`) exist in Astro 5. That install
-mode also nests some transitive packages, so `vite` and the React types are
-listed directly.
+The Astro package peers with Astro 7, so it participates in normal npm
+dependency resolution. `vite` is listed directly because the Tailwind Vite
+plugin consumes it.
 
 Page URLs in the graph use trailing slashes to match Astro's directory
 output and the last breadcrumb item. Empty post descriptions fall back to
@@ -67,6 +65,3 @@ use the `.md` twins and `llms.txt` instead.
 - A Worker handler for `Accept: text/markdown` at canonical URLs
 - `llms-full.txt` (optional one-file export; not part of the llms.txt v2
   proposal)
-- Astro 7 upgrade: tracked in
-  [issue #11](https://github.com/yjsoon/blog/issues/11). Not required for
-  this integration.
