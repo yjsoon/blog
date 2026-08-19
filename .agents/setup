@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Checking the Node.js toolchain"
+repo_root="$(pwd -P)"
+required_node_version="$(tr -d '[:space:]' < .nvmrc)"
+export NVM_DIR="$HOME/.nvm"
+
+if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
+  echo "==> Installing nvm"
+  git clone --branch v0.40.3 --depth 1 https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+fi
+
+# shellcheck disable=SC1091
+source "$NVM_DIR/nvm.sh" --no-use
+time nvm install --no-progress "$required_node_version"
+nvm use --silent "$required_node_version"
+nvm alias default "$required_node_version" >/dev/null
+
+profile_marker="# yjsoon/blog Node.js toolchain"
+if ! grep -Fqx "$profile_marker" "$HOME/.bash_profile" 2>/dev/null; then
+  cat >> "$HOME/.bash_profile" <<EOF
+
+$profile_marker
+if [[ "\${PWD}" == "$repo_root" ]]; then
+  export NVM_DIR="\$HOME/.nvm"
+  [ -s "\$NVM_DIR/nvm.sh" ] && source "\$NVM_DIR/nvm.sh" --no-use
+  nvm use --silent >/dev/null
+fi
+EOF
+fi
+
+required_npm_version="$(node -p 'require("./package.json").packageManager.split("@").pop()')"
+if [[ "$(npm --version)" != "$required_npm_version" ]]; then
+  echo "==> Installing npm ${required_npm_version}"
+  time npm install --global --no-audit --no-fund "npm@${required_npm_version}"
+  hash -r
+else
+  echo "==> npm ${required_npm_version} is already installed"
+fi
+
+echo "==> Installing locked dependencies"
+time npm ci --no-audit --no-fund
+
+echo "==> Orb setup completed in ${SECONDS}s"
