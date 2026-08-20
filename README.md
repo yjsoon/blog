@@ -33,6 +33,8 @@ When asked to “commit and push,” publish the requested changes all the way t
 - Build command: `npm run build`
 - Output directory: `dist`
 - Node.js version: Specified in `.nvmrc`
+- Build cache: Enable Cloudflare Pages build caching so Astro can reuse its
+  incremental build output from `node_modules/.astro`
 
 ## Content Authoring
 

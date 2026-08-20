@@ -1,17 +1,41 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import JsxImageWithModal from "./ImageWithModal.jsx";
 import X from "./icons/X.astro";
 
 export type Props = {
-  src: string;
+  src: string | ImageMetadata;
   alt: string;
   title?: string;
   class?: string;
 };
 
 const { src, alt, title, class: className } = Astro.props;
+const isLocalImage = typeof src !== "string";
+const fullSrc = isLocalImage ? src.src : src;
 ---
 
-<JsxImageWithModal client:visible src={src} alt={alt} title={title} className={className}>
+<JsxImageWithModal
+  client:visible
+  fullSrc={fullSrc}
+  width={isLocalImage ? src.width : undefined}
+  height={isLocalImage ? src.height : undefined}
+  alt={alt}
+  title={title}
+  className={className}
+>
+  {
+    isLocalImage ? (
+      <Image
+        src={src}
+        alt={alt}
+        width={Math.min(src.width, 720)}
+        class="m-auto max-h-[50vh]"
+      />
+    ) : (
+      <img src={src} alt={alt} class="m-auto max-h-[50vh]" loading="lazy" />
+    )
+  }
   <X slot="closeIcon" />
 </JsxImageWithModal>

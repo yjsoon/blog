@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
@@ -43,7 +44,15 @@ const headlinePosts = recentPosts.slice(5, 10);
           )
         }
         </div>
-        <img src={Logo.src} alt="yjsoon" class="w-32 h-32 rounded-full" />
+        <Image
+          src={Logo}
+          alt="yjsoon"
+          width={128}
+          height={128}
+          loading="eager"
+          fetchpriority="high"
+          class="w-32 h-32 rounded-full"
+        />
       </div>
 
     </section>

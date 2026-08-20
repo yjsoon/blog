@@ -1,18 +1,19 @@
 import { useEffect, useState, useCallback } from "react";
 
 export default function ImageWithModal(props) {
-  // Handle both string URLs and Astro image objects
-  const srcUrl = typeof props.src === 'string' ? props.src : props.src.src || props.src.default;
-
-  const [naturalSize, setNaturalSize] = useState({ w: 0, h: 0 });
+  const [naturalSize, setNaturalSize] = useState({
+    w: props.width || 0,
+    h: props.height || 0,
+  });
   const [viewport, setViewport] = useState({ w: 0, h: 0 });
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const update = () => setViewport({ w: window.innerWidth, h: window.innerHeight });
+    const update = () =>
+      setViewport({ w: window.innerWidth, h: window.innerHeight });
     update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   // Let Radix handle scroll locking; prevent auto-focus to avoid scroll jumps
@@ -35,28 +36,33 @@ export default function ImageWithModal(props) {
     computedWidthStyle = { width: `${Math.max(0, Math.floor(displayW))}px` };
   }
 
-  const onKeyDown = useCallback((e) => {
-    if (!open) return;
-    if (e.key === 'Escape') setOpen(false);
-  }, [open]);
+  const onKeyDown = useCallback(
+    e => {
+      if (!open) return;
+      if (e.key === "Escape") setOpen(false);
+    },
+    [open]
+  );
 
   useEffect(() => {
     if (!open) return;
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [open, onKeyDown]);
 
   return (
     <div>
-      <figure className={props.className || ''}>
-        <img
-          src={srcUrl}
-          alt={props.alt}
-          className="max-h-[50vh] cursor-pointer m-auto"
+      <figure className={props.className || ""}>
+        <button
+          type="button"
+          className="block w-full cursor-zoom-in border-0 bg-transparent p-0"
+          aria-label={`View ${props.alt} at full size`}
           onClick={() => setOpen(true)}
-        />
+        >
+          {props.children}
+        </button>
         {props.title && (
-          <figcaption className="text-foreground text-center text-sm mt-1">
+          <figcaption className="mt-1 text-center text-sm text-foreground">
             {props.title}
           </figcaption>
         )}
@@ -67,35 +73,40 @@ export default function ImageWithModal(props) {
           className="fixed inset-0 z-[1000]"
           aria-modal="true"
           role="dialog"
-          aria-label={props.title || props.alt || 'Image preview'}
+          aria-label={props.title || props.alt || "Image preview"}
           onClick={() => setOpen(false)}
         >
           <div className="absolute inset-0 bg-black/50" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div
-              className="max-h-[90vh] max-w-[90vw] bg-background flex flex-col items-center rounded-md border border-border p-4"
+              className="flex max-h-[90vh] max-w-[90vw] flex-col items-center rounded-md border border-border bg-background p-4"
               style={computedWidthStyle}
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <div className="flex flex-col items-center">
                 <img
-                  src={srcUrl}
+                  src={props.fullSrc}
                   alt={props.alt}
+                  width={props.width}
+                  height={props.height}
                   className="max-h-[calc(90vh-4rem)] max-w-full"
-                  onLoad={(e) => {
+                  onLoad={e => {
                     const img = e.currentTarget;
                     if (img && img.naturalWidth && img.naturalHeight) {
-                      setNaturalSize({ w: img.naturalWidth, h: img.naturalHeight });
+                      setNaturalSize({
+                        w: img.naturalWidth,
+                        h: img.naturalHeight,
+                      });
                     }
                   }}
                 />
-                <div className="text-foreground text-center text-sm mt-1">
+                <div className="mt-1 text-center text-sm text-foreground">
                   {props.title ? props.title : props.alt}
                 </div>
               </div>
               <button
                 type="button"
-                className="bg-background text-foreground hover:text-accent absolute top-3 right-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border focus:outline-hidden"
+                className="absolute top-3 right-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-foreground hover:text-accent focus:outline-hidden"
                 aria-label="Close"
                 onClick={() => setOpen(false)}
               >

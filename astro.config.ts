@@ -4,9 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import { agentMarkdown } from "@iannuttall/seo-graph-astro";
-import { unified } from "@astrojs/markdown-remark";
-import remarkToc from "remark-toc";
-import remarkCollapse from "remark-collapse";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -19,6 +16,13 @@ import { SITE } from "./src/config";
 export default defineConfig({
   site: SITE.website,
   compressHTML: true,
+  image: {
+    layout: "constrained",
+    responsiveStyles: true,
+  },
+  experimental: {
+    incrementalBuild: true,
+  },
   server: {
     allowedHosts: true,
   },
@@ -50,12 +54,6 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    processor: unified({
-      remarkPlugins: [
-        remarkToc,
-        [remarkCollapse, { test: "Table of contents" }],
-      ],
-    }),
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },

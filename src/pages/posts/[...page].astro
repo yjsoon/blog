@@ -8,11 +8,23 @@ import Footer from "@/components/Footer.astro";
 import Card from "@/components/Card.astro";
 import Pagination from "@/components/Pagination.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
+import getPostsCacheKey from "@/utils/getPostsCacheKey";
 import { SITE } from "@/config";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
-  return paginate(getSortedPosts(posts), { pageSize: SITE.postPerPage });
+  return paginate(getSortedPosts(posts), { pageSize: SITE.postPerPage }).map(
+    result => {
+      const postsCacheKey = getPostsCacheKey(result.props.page.data);
+      return {
+        ...result,
+        cacheKey:
+          postsCacheKey === undefined
+            ? undefined
+            : `${result.props.page.total}:${postsCacheKey}`,
+      };
+    }
+  );
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;

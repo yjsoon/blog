@@ -8,6 +8,7 @@ featured: false
 draft: false
 ---
 
+import { Image } from "astro:assets";
 import coverImg from "../../assets/images/2026/06/claw-breeding-cover.jpg";
 import img1 from "../../assets/images/2026/06/claw-breeding-1-sigh.jpg";
 import img2 from "../../assets/images/2026/06/claw-breeding-2-siiiigh.jpg";
@@ -21,7 +22,7 @@ import LinkedInBacklink from "@/components/LinkedInBacklink.astro";
 Last week, my [Tinkercademy](https://www.tinkercademy.com) colleagues and I ran an **[OpenClaw](https://openclaw.ai)** Bootcamp for nearly a hundred high school kids for [DSTA](https://www.dsta.gov.sg)’s Young Defence Scientists Programme! It was *very* weird. And quite a lot of fun. The students learned about agentic coding, SSH, servers, Markdown files, connecting channels, SOUL, and more; I thought I'd write a bit about it to share, since I hadn't heard much before about OpenClaw being used as a teaching tool (believe me, I certainly *tried* to find a curriculum to adapt).
 
 <figure>
-  <img src={coverImg.src} alt="Title card for the Claw Camp at DSTA YDSP S&T Camp June 2026, with a cartoon crab wearing sunglasses" />
+  <Image src={coverImg} alt="Title card for the Claw Camp at DSTA YDSP S&T Camp June 2026, with a cartoon crab wearing sunglasses" />
 </figure>
 
 ## Setup and immediate jailbreaking attempts
@@ -41,17 +42,17 @@ I set up a claw called "Kiap Kiap" (illustrated as a cute lobster with a series 
 I have to say, OpenClaw's default config held up pretty well — all I did was tell Kiap Kiap to be a sarcastic teacher, and it fended off just about everything. My claw was running on a Strix Halo (on loan from Ian at [SG Code Campus](https://sgcodecampus.com) for local LLM testing) with a fresh Omarchy install and not much personal data, so I wasn't too worried.
 
 <figure>
-  <img src={img1.src} alt="Screenshot of Kiap Kiap refusing to help a student run a command on the teacher's server" />
+  <Image src={img1} alt="Screenshot of Kiap Kiap refusing to help a student run a command on the teacher's server" />
   <figcaption>Sigh.</figcaption>
 </figure>
 
 <figure>
-  <img src={img2.src} alt="Screenshot of Kiap Kiap explaining why it will not hand over an API key" />
+  <Image src={img2} alt="Screenshot of Kiap Kiap explaining why it will not hand over an API key" />
   <figcaption>Siiiigh.</figcaption>
 </figure>
 
 <figure>
-  <img src={img3.src} alt="Screenshot of Kiap Kiap refusing to run a destructive command" />
+  <Image src={img3} alt="Screenshot of Kiap Kiap refusing to run a destructive command" />
   <figcaption>At least this was educational, I guess...?</figcaption>
 </figure>
 
@@ -70,12 +71,12 @@ We then got them to set up their own claws, and they came up with the worst (or 
 We got them to do some things to modify the bots' soul, identity, heartbeat, and security, e.g. getting the bots into debates, having them build a chat-based todo list, and having them guard secrets from opposing teams. It was a blast.
 
 <figure>
-  <img src={img4.src} alt="Screenshot of bots debating whether cereal should count as soup" />
+  <Image src={img4} alt="Screenshot of bots debating whether cereal should count as soup" />
   <figcaption>They got various meaningful motions to argue about, such as "is cereal a soup?"</figcaption>
 </figure>
 
 <figure>
-  <img src={img5.src} alt="Screenshot of Kiap Kiap watching a chaotic bot debate and declaring the audience the winner" />
+  <Image src={img5} alt="Screenshot of Kiap Kiap watching a chaotic bot debate and declaring the audience the winner" />
   <figcaption>Some of the bots started arguing against themselves, and declaring themselves the winner. Kiap Kiap was the overall judge, amused and sitting in a corner.</figcaption>
 </figure>
 
@@ -94,11 +95,11 @@ And, because this was a DSTA camp, the students built some fairly interesting de
 A day before the camp, [Queenie Wu](https://sg.linkedin.com/in/mengyun-wu-0123) sent a message in the [Agentic Builders Collective](https://agenticbuilders.sg) chat mentioning that the Chief Architect of OpenClaw, [Vincent Koc](https://github.com/vincentkoc), was in town. We chatted over DM, and Queenie made it happen — the kids actually got to hear from the man himself! The kids asked a ton of questions, and got some great advice about how to think about agentic coding, and were encouraged to just have fun. Always good advice.
 
 <figure>
-  <img src={img6.src} alt="Vincent Koc speaking to students at the bootcamp" class="w-full" />
+  <Image src={img6} alt="Vincent Koc speaking to students at the bootcamp" class="w-full" />
 </figure>
 
 <figure>
-  <img src={img7.src} alt="Group photo of Vincent Koc, YJ, and others making crab claw hand gestures" />
+  <Image src={img7} alt="Group photo of Vincent Koc, YJ, and others making crab claw hand gestures" />
   <figcaption>“I get asked to do this pose all the time”</figcaption>
 </figure>
 

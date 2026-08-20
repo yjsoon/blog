@@ -9,6 +9,7 @@ draft: false
 ---
 
 import YouTubeEmbed from "@/components/YouTubeEmbed.astro";
+import { Image } from "astro:assets";
 import img1 from "../../assets/images/2026/04/agenticbuilders-sg-site-1.jpg";
 import img2 from "../../assets/images/2026/04/agenticbuilders-sg-site-2.jpg";
 import img3 from "../../assets/images/2026/04/agenticbuilders-sg-site-3.jpg";
@@ -20,7 +21,7 @@ Time flies when you're having fun — it's been over half a year since [Chris Pe
 It's been especially great seeing former students show up at events after many years! This time round, we had (Dr!) [Gaurav Manek](https://sg.linkedin.com/in/gauravmanek) share his personal claw guidelines, and I got to tell folks this dude used to gleefully demo the, eh, very educational capabilities of Wireshark during Infocomm Club CCA time.
 
 <figure>
-  <img src={img1.src} alt="Ex-students Gaurav and Qiao Han with YJ at an Agentic Builders meetup" />
+  <Image src={img1} alt="Ex-students Gaurav and Qiao Han with YJ at an Agentic Builders meetup" />
   <figcaption>I don't remember these guys having been taller than me when I taught them 20 years ago. Have I shrunk</figcaption>
 </figure>
 
@@ -29,7 +30,7 @@ It's been especially great seeing former students show up at events after many y
 We also now have a proper website, at [agenticbuilders.sg](https://agenticbuilders.sg), vibe-designed with Claude and Codex. To get a terminal-like look and feel, I had to regularly yell at the agents to **please stop using 1.125rem and 0.875rem**, *no*, **please** stop, **you introduced another font size again**, you stupid bot, I have it in bold in `CLAUDE.md` and `AGENTS.md`, aghhhh.
 
 <figure>
-  <img src={img2.src} alt="Screenshot of the agenticbuilders.sg site" />
+  <Image src={img2} alt="Screenshot of the agenticbuilders.sg site" />
   <figcaption>Please, Claude and Codex, pleeeease stop changing my font sizes</figcaption>
 </figure>
 
@@ -38,7 +39,7 @@ It's an Astro site, with data rendered from Markdown and YAML files, architected
 The secret, though, is that *you don't need to understand Astro* — we left instructions and breadcrumbs for your favourite coding agent to help you out! (Thanks [Alex Teo](https://sg.linkedin.com/in/alexgteo) for the assist too!)
 
 <figure>
-  <img src={img3.src} alt="Repository instructions for coding agents" />
+  <Image src={img3} alt="Repository instructions for coding agents" />
   <figcaption>All these documents, written by AI, to be read by AI</figcaption>
 </figure>
 

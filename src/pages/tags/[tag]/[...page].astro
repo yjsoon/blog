@@ -9,6 +9,7 @@ import Card from "@/components/Card.astro";
 import Pagination from "@/components/Pagination.astro";
 import getUniqueTags from "@/utils/getUniqueTags";
 import getPostsByTag from "@/utils/getPostsByTag";
+import getPostsCacheKey from "@/utils/getPostsCacheKey";
 import { SITE } from "@/config";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
@@ -22,6 +23,15 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
       params: { tag },
       props: { tagName },
       pageSize: SITE.postPerPage,
+    }).map(result => {
+      const postsCacheKey = getPostsCacheKey(result.props.page.data);
+      return {
+        ...result,
+        cacheKey:
+          postsCacheKey === undefined
+            ? undefined
+            : `${tagName}:${result.props.page.total}:${postsCacheKey}`,
+      };
     });
   });
 }

@@ -1,14 +1,18 @@
-import { useState } from 'react';
-import { ColumnsPhotoAlbum } from 'react-photo-album';
-import Lightbox from 'yet-another-react-lightbox';
-import 'react-photo-album/columns.css';
-import 'yet-another-react-lightbox/styles.css';
+import { useState } from "react";
+import { ColumnsPhotoAlbum } from "react-photo-album";
+import Lightbox from "yet-another-react-lightbox";
+import "react-photo-album/columns.css";
+import "yet-another-react-lightbox/styles.css";
 
-interface Photo {
+interface ImageSource {
   src: string;
   width: number;
   height: number;
+}
+
+interface Photo extends ImageSource {
   alt?: string;
+  srcSet?: ImageSource[];
 }
 
 interface Props {
@@ -20,8 +24,9 @@ export default function PhotoGallery({ photos }: Props) {
 
   return (
     <div className="my-4">
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .react-photo-album--columns {
           gap: 2px !important;
           column-gap: 4px !important;
@@ -47,11 +52,12 @@ export default function PhotoGallery({ photos }: Props) {
         }
         .react-photo-album--track {
           gap: 2px !important;
-        }`
-      }} />
+        }`,
+        }}
+      />
       <ColumnsPhotoAlbum
         photos={photos}
-        columns={(containerWidth) => {
+        columns={containerWidth => {
           if (containerWidth < 400) return 2;
           if (containerWidth < 600) return 3;
           if (containerWidth < 900) return 4;
@@ -60,7 +66,7 @@ export default function PhotoGallery({ photos }: Props) {
         spacing={2}
         onClick={({ index }) => setIndex(index)}
       />
-      
+
       <Lightbox
         open={index >= 0}
         index={index}
