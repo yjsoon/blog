@@ -59,9 +59,62 @@ Runtime `Accept: text/markdown` negotiation at canonical HTML URLs needs
 a Cloudflare Worker. This site is a static Pages deploy, so agents should
 use the `.md` twins and `llms.txt` instead.
 
+## Search and ChatGPT discovery
+
+Following [Ian Nuttall's recommendations](https://x.com/iannuttall/status/1922215138511487303),
+the technical baseline is already present: Astro builds readable HTML without
+requiring JavaScript, `robots.txt` allows all crawlers (including `ChatGPT-User`,
+`OAI-SearchBot`, and `GPTBot`), and advertises `/sitemap-index.xml`. Pages have
+titles, descriptions, canonical links, and JSON-LD; posts have `BlogPosting`
+schema, article Open Graph metadata, and publication/update dates.
+
+These are discovery aids, not a guarantee of inclusion or ranking in ChatGPT.
+Allowing crawlers in the repository does not override Cloudflare bot rules.
+
+### Bing Webmaster Tools (account setup required)
+
+1. Add `https://yjsoon.com/` in [Bing Webmaster Tools](https://www.bing.com/webmasters/).
+2. Choose HTML meta-tag verification. Set the **content value only** from
+   Bing's `msvalidate.01` tag as `PUBLIC_BING_SITE_VERIFICATION` in the
+   Cloudflare Pages production build environment. This is a public verification
+   token, not an API credential.
+3. Deploy a new build, check the homepage source for `msvalidate.01`, then
+   complete verification in Bing. The tag is omitted when the variable is unset.
+4. Submit `https://yjsoon.com/sitemap-index.xml` in Bing's Sitemaps section.
+   Inspect a representative post URL and check crawl/indexing reports there.
+
+### Automatic IndexNow notifications (production setting required)
+
+Use Cloudflare's [Crawler Hints](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)
+rather than maintaining a second submission service. In the site's Cloudflare
+zone, go to **Caching → Configuration → Crawler Hints** and enable it. It uses
+cache signals to send IndexNow notifications; it is not an immediate,
+per-deployment submission guarantee. No repository key or build-time network
+submission is needed. Keep the sitemap submission as well.
+
+This setting and Bing account setup are not enabled by a code change. Review
+Cloudflare bot/WAF settings too: they must allow the crawlers you want to reach
+the public site. Do not disable security controls globally to achieve this.
+
+### Editorial recommendations
+
+- Keep titles and descriptions specific to the actual post, with useful heading
+  structure and relevant internal links. Preserve source wording when adapting
+  social posts, as required by [the content workflow](content-workflow.md).
+- Set `modDatetime` only after a substantive update. The existing date component
+  renders real dates using `<time datetime>` in `Asia/Singapore`; do not bump
+  dates or append the current year merely to appear fresh.
+- Add FAQ or HowTo schema only when a page genuinely contains that content.
+  Do not label ordinary blog posts as FAQs or manufacture support/pricing pages
+  for a personal blog.
+- Publish original observations or data when available, cite sources, and
+  explain methods. Do not invent statistics or bulk-generate thin long-tail posts.
+- Pursue relevant mentions, expert contributions, and attributed cross-posts
+  through the author's accounts. Outreach and external publishing require
+  separate approval; do not automate promotional spam or link schemes.
+
 ## Left for later
 
-- IndexNow key + incremental submit on production deploys
 - A Worker handler for `Accept: text/markdown` at canonical URLs
 - `llms-full.txt` (optional one-file export; not part of the llms.txt v2
   proposal)

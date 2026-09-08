@@ -1,6 +1,9 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
+import {
+  PUBLIC_BING_SITE_VERIFICATION,
+  PUBLIC_GOOGLE_SITE_VERIFICATION,
+} from "astro:env/client";
 import { SITE } from "@/config";
 import Logo from "@/assets/logo.png";
 import {
@@ -95,6 +98,10 @@ const structuredData = buildSeoGraph({
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
+    <meta
+      property="og:type"
+      content={schemaKind === "post" ? "article" : "website"}
+    />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
@@ -142,6 +149,12 @@ const structuredData = buildSeoGraph({
     />
 
     <meta name="theme-color" content="" />
+
+    {
+      PUBLIC_BING_SITE_VERIFICATION && (
+        <meta name="msvalidate.01" content={PUBLIC_BING_SITE_VERIFICATION} />
+      )
+    }
 
     {
       // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,

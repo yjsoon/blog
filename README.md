@@ -36,6 +36,11 @@ When asked to “commit and push,” publish the requested changes all the way t
 - Build cache: Enable Cloudflare Pages build caching so Astro can reuse its
   incremental build output from `node_modules/.astro`
 
+For Bing verification, sitemap submission, and automatic IndexNow notifications
+via Cloudflare Crawler Hints, follow the [search discovery setup](docs/seo-graph.md#search-and-chatgpt-discovery).
+The optional `PUBLIC_BING_SITE_VERIFICATION` build variable adds Bing's
+verification meta tag; account verification and Crawler Hints need separate setup.
+
 ## Content Authoring
 
 - See [RSS content rendering](docs/rss-content.md) for feed-safe video markup
