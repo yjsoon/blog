@@ -79,7 +79,7 @@ const headlinePosts = recentPosts.slice(5, 10);
       fullPosts.length > 0 && (
         <section id="recent-posts" class="pt-6 pb-6">
           <ul>
-            {fullPosts.map(data => <FullCard variant="h3" {...data} />)}
+            {fullPosts.map(data => <FullCard {...data} />)}
           </ul>
         </section>
       )

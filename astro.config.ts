@@ -30,7 +30,13 @@ export default defineConfig({
     react(),
     mdx(),
     sitemap({
-      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+      filter: page => {
+        const pathname = new URL(page).pathname.replace(/\/+$/, "");
+        return (
+          !["/search", "/feed", "/404"].includes(pathname) &&
+          (SITE.showArchives || pathname !== "/archives")
+        );
+      },
     }),
     agentMarkdown({
       llmsTxt: {

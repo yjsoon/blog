@@ -18,6 +18,10 @@ Page URLs in the graph use trailing slashes to match Astro's directory
 output and the last breadcrumb item. Empty post descriptions fall back to
 `SITE.desc` so the agent-markdown pipeline has a meta description to read.
 
+Search and 404 pages use `Layout`'s `noindex` prop. The sitemap excludes
+search, error, and feed-redirect routes; content pagination remains indexable
+with self-canonicals and page-specific titles and descriptions.
+
 ## Page JSON-LD
 
 `src/utils/seoGraph.ts` follows the personal-blog recipe: a site-wide

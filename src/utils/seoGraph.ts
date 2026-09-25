@@ -1,5 +1,11 @@
 import type { CollectionEntry } from "astro:content";
-import type { Blog, Organization, Person } from "schema-dts";
+import type {
+  Blog,
+  Organization,
+  Person,
+  SearchAction,
+  WithActionConstraints,
+} from "schema-dts";
 import {
   assembleGraph,
   buildArticle,
@@ -125,6 +131,15 @@ export function defaultPageImage(): SeoImage {
 }
 
 export function siteWidePieces(): GraphEntity[] {
+  const searchAction: WithActionConstraints<SearchAction> = {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${origin}/search?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  };
+
   return [
     buildWebSite(
       {
@@ -135,13 +150,7 @@ export function siteWidePieces(): GraphEntity[] {
         about: { "@id": ids.person },
         inLanguage: language,
         hasPart: { "@id": ids.navigation },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${origin}/search?q={search_term_string}`,
-          },
-        },
+        potentialAction: searchAction,
       },
       ids
     ),
@@ -267,6 +276,9 @@ export function buildSeoGraphPieces(input: BuildSeoGraphInput): GraphEntity[] {
         dateModified: input.dateModified ?? undefined,
         primaryImage: { "@id": ids.primaryImage(url) },
         about,
+        ...(input.kind === "about"
+          ? { mainEntity: { "@id": ids.person } }
+          : {}),
         copyrightHolder: { "@id": ids.person },
         license: CONTENT_LICENSE,
         isAccessibleForFree: true,

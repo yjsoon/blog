@@ -30,6 +30,7 @@ export interface Props {
   breadcrumbs?: BreadcrumbCrumb[];
   headline?: string;
   articleSection?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -45,6 +46,7 @@ const {
   breadcrumbs,
   headline,
   articleSection,
+  noindex = false,
 } = Astro.props;
 
 const description = fallbackDescription(rawDescription);
@@ -95,6 +97,7 @@ const structuredData = buildSeoGraph({
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->

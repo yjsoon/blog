@@ -31,8 +31,8 @@ const { page } = Astro.props;
 ---
 
 <Layout
-  title={`Posts | ${SITE.title}`}
-  description="All the articles I've posted."
+  title={`Posts${page.currentPage > 1 ? ` — Page ${page.currentPage}` : ""} | ${SITE.title}`}
+  description={`All the articles I've posted.${page.currentPage > 1 ? ` Page ${page.currentPage} of ${page.lastPage}.` : ""}`}
   schemaKind="collection"
   breadcrumbs={[
     { name: "Home", url: SITE.website },
