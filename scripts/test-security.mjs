@@ -1,12 +1,21 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { constants } from "node:fs";
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import {
+  cp,
+  mkdir,
+  mkdtemp,
+  readFile,
+  readdir,
+  rm,
+  writeFile,
+} from "node:fs/promises";
 import { get } from "node:http";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
+import { gunzipSync } from "node:zlib";
 import { dev } from "astro";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -38,6 +47,12 @@ test("production artifacts respect publication time and draft status", async () 
     const fixtures = [
       { slug: "published-control", offset: -86400000, visible: true },
       { slug: "inside-margin", offset: 5 * 60000, visible: true },
+      {
+        slug: "published-custom-og",
+        offset: -86400000,
+        visible: true,
+        customOg: true,
+      },
       { slug: "outside-margin", offset: 60 * 60000, visible: false },
       {
         slug: "future-custom-og",
@@ -53,55 +68,95 @@ test("production artifacts respect publication time and draft status", async () 
         `---\ntitle: ${fixture.slug}\npubDatetime: ${new Date(now + fixture.offset).toISOString()}\ndescription: ${fixture.slug} description\ndraft: ${!!fixture.draft}\n${fixture.customOg ? 'ogImage: "https://yjsoon.com/yjsoon-og.jpg"\n' : ""}---\n\n${fixture.slug} private body marker.\n`
       );
     }
-    execFileSync(
-      process.execPath,
-      [path.join(workspace, "node_modules/astro/bin/astro.mjs"), "build"],
-      {
+    for (const reschedule of [false, true]) {
+      if (reschedule) {
+        // Preserve both build caches and the previous public/Pagefind output.
+        // Moving a published post back into the future must remove old fragments.
+        const file = path.join(blog, "published-control.md");
+        await writeFile(
+          file,
+          (await readFile(file, "utf8")).replace(
+            /^pubDatetime:.*$/m,
+            `pubDatetime: ${new Date(now + 86400000).toISOString()}`
+          )
+        );
+        fixtures[0].visible = false;
+      }
+      execFileSync("npm", ["run", "build"], {
         cwd: workspace,
         stdio: "pipe",
         timeout: 120000,
+      });
+      const dist = path.join(workspace, "dist");
+      const archive = await readFile(
+        path.join(dist, "archives/index.html"),
+        "utf8"
+      );
+      for (const fixture of fixtures) {
+        for (const suffix of ["/index.html", "/index.png", ".md"]) {
+          const artifact = path.join(dist, `posts/${fixture.slug}${suffix}`);
+          if (
+            fixture.visible &&
+            !(fixture.customOg && suffix === "/index.png")
+          ) {
+            assert.ok((await readFile(artifact)).length, `missing ${artifact}`);
+          } else {
+            await assert.rejects(
+              readFile(artifact),
+              { code: "ENOENT" },
+              `leaked ${artifact}`
+            );
+          }
+        }
+        assert.equal(
+          archive.includes(fixture.slug),
+          fixture.visible,
+          `archive: ${fixture.slug}`
+        );
       }
-    );
-    const dist = path.join(workspace, "dist");
-    const archive = await readFile(
-      path.join(dist, "archives/index.html"),
-      "utf8"
-    );
-    for (const fixture of fixtures) {
-      for (const suffix of ["/index.html", "/index.png", ".md"]) {
-        const artifact = path.join(dist, `posts/${fixture.slug}${suffix}`);
-        if (fixture.visible) {
-          assert.ok((await readFile(artifact)).length, `missing ${artifact}`);
-        } else {
-          await assert.rejects(
-            readFile(artifact),
-            { code: "ENOENT" },
-            `leaked ${artifact}`
+      // Check the discoverable exports as well as direct article/image routes.
+      for (const name of [
+        "index.html",
+        "posts/index.html",
+        "rss.xml",
+        "sitemap-0.xml",
+        "schema/blog.json",
+        "llms.txt",
+        "agent-routes.json",
+      ]) {
+        const body = await readFile(path.join(dist, name), "utf8");
+        for (const fixture of fixtures.filter(fixture => !fixture.visible)) {
+          assert.ok(
+            !body.includes(fixture.slug),
+            `${name} leaked ${fixture.slug}`
           );
         }
       }
-      assert.equal(
-        archive.includes(fixture.slug),
-        fixture.visible,
-        `archive: ${fixture.slug}`
-      );
-    }
-    // Check the discoverable exports as well as direct article/image routes.
-    for (const name of [
-      "index.html",
-      "posts/index.html",
-      "rss.xml",
-      "sitemap-0.xml",
-      "schema/blog.json",
-      "llms.txt",
-      "agent-routes.json",
-    ]) {
-      const body = await readFile(path.join(dist, name), "utf8");
-      for (const fixture of fixtures.filter(fixture => !fixture.visible)) {
-        assert.ok(
-          !body.includes(fixture.slug),
-          `${name} leaked ${fixture.slug}`
+      for (const directory of [
+        "dist/pagefind/fragment",
+        "public/pagefind/fragment",
+      ]) {
+        const fragmentDirectory = path.join(workspace, directory);
+        const names = (await readdir(fragmentDirectory)).filter(name =>
+          name.endsWith(".pf_fragment")
         );
+        assert.ok(names.length, `${directory} contains search fragments`);
+        const fragments = (
+          await Promise.all(
+            names.map(async name =>
+              gunzipSync(
+                await readFile(path.join(fragmentDirectory, name))
+              ).toString("utf8")
+            )
+          )
+        ).join("\n");
+        for (const fixture of fixtures) {
+          assert.equal(
+            fragments.includes(fixture.slug),
+            fixture.visible,
+            `${directory}: ${fixture.slug}`
+          );
+        }
       }
     }
   } finally {

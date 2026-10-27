@@ -28,6 +28,8 @@ Production builds omit drafts and posts more than the configured 15-minute
 publication margin into the future, including article pages, generated OG images,
 archives, and derived discovery files. Development previews still show scheduled
 non-draft posts. Publishing a scheduled post requires a new production build.
+Each build replaces generated Pagefind output so stale search fragments cannot
+retain posts that were removed, made drafts, or rescheduled into the future.
 
 The development server uses Astro's default Host validation. Docker Compose
 exposes it only on `127.0.0.1:4321`. If a trusted development proxy requires a
