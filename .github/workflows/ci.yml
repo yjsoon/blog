@@ -46,3 +46,6 @@ jobs:
 
       - name: "🚀 Build the project"
         run: npm run build
+
+      - name: "🔒 Check publication and development-host boundaries"
+        run: npm run test:security
