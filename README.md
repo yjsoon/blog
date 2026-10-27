@@ -24,6 +24,24 @@ npm run dev
 npm run build
 ```
 
+Production builds omit drafts and posts more than the configured 15-minute
+publication margin into the future, including article pages, generated OG images,
+archives, and derived discovery files. Development previews still show scheduled
+non-draft posts. Publishing a scheduled post requires a new production build.
+Each build replaces generated Pagefind output so stale search fragments cannot
+retain posts that were removed, made drafts, or rescheduled into the future.
+
+The development server uses Astro's default Host validation. Docker Compose
+exposes it only on `127.0.0.1:4321`. If a trusted development proxy requires a
+custom hostname, allow that exact hostname in `server.allowedHosts`; do not set
+it to `true` or allow an entire shared hosting domain.
+
+Run `npm run test:security` for the publication and Host-header regressions.
+The publication test builds synthetic posts in a temporary copy and removes it
+afterward; it needs temporary disk space for dependencies and network access for
+the existing Google Fonts OG renderer. The Host test starts and stops a local
+development server on an ephemeral port.
+
 ## Deployment
 
 Deployed automatically via **Cloudflare Pages** connected to the GitHub repository. Push to `main` branch triggers automatic deployment.

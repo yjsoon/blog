@@ -23,9 +23,6 @@ export default defineConfig({
   experimental: {
     incrementalBuild: true,
   },
-  server: {
-    allowedHosts: true,
-  },
   integrations: [
     react(),
     mdx(),
