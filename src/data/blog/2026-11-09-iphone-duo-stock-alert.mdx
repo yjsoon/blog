@@ -1,0 +1,36 @@
+---
+author: "yjsoon"
+pubDatetime: 2026-11-09T00:00:00.000Z
+title: "You can just build things: an iPhone Duo stock alert"
+description: "I got tired of waiting till January for my iPhone Duo order, and I didn’t want to spend $30 for alerts on a website, so I made a tool to get alerts for iPhone Duo for in-store pick-up."
+tags: ["ai", "coding", "vibe-coding"]
+featured: false
+draft: false
+---
+
+import { Image } from "astro:assets";
+import LinkedInBacklink from "@/components/LinkedInBacklink.astro";
+import duoSetup from "../../assets/images/2026/11/cda01a63-duo-setup.jpg";
+
+In this week{"'"}s reminder that {'"'}you can just build things now{'"'}, I got tired of waiting till January for my iPhone Duo order, and I didn’t want to spend $30 for alerts on a website, so I made a tool to get alerts for iPhone Duo for in-store pick-up.
+
+Unfortunately for my wallet, it worked.
+
+I adapted from a couple other existing repos out there, and cleaned things up so you could, in theory, point your agent at this repo, prep the free ntfy app (sends push notifications), keep a machine with NodeJS running (or use Cloudflare; free tier should work), and you should be able to get fairly up-to-date notifications whenever the local Apple Store has a Duo of your choice in stock.
+
+Check it out at [https://github.com/yjsoon/duo-stock-tracker](https://github.com/yjsoon/duo-stock-tracker) (GitHub link - point your agent at it).
+
+You still need some level of tech knowledge to set it up, but if you{"'"}ve tried just a bit of agentic building, it should be doable! Let me know if you need help setting it up, and I can yell at my agent some more to make the instructions clearer.
+
+You really can just build things now.
+
+(Pictured: my new agentic coding setup with the Logitech Keys to Go 2 and the Amp iOS app. I nearly don{"'"}t need a laptop now!)
+
+<Image
+  src={duoSetup}
+  alt={
+    "(Pictured: my new agentic coding setup with the Logitech Keys to Go 2 and the Amp iOS app. I nearly don't need a laptop now!)"
+  }
+/>
+
+<LinkedInBacklink href="https://www.linkedin.com/feed/update/urn:li:activity:7525485664939966464/" />
